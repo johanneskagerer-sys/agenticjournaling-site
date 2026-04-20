@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "agenticjournaling — Journal · Listen · Integrate",
@@ -130,9 +131,7 @@ export default function AgenticJournaling() {
         </FadeIn>
       </section>
 
-      <footer className="footer-simple">
-        <p>&copy; 2026 Johannes Kagerer</p>
-      </footer>
+      <Footer />
     </>
   );
 }

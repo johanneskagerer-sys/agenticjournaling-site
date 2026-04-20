@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FirstMoversForm from "@/components/FirstMoversForm";
 import FadeIn from "@/components/FadeIn";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "First Movers",
@@ -35,9 +36,7 @@ export default function FirstMovers() {
         </FadeIn>
       </section>
 
-      <footer className="footer-simple">
-        <p>&copy; 2026 Johannes Kagerer</p>
-      </footer>
+      <Footer />
     </>
   );
 }

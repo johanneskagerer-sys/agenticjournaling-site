@@ -572,6 +572,33 @@ body {
   margin: 0;
 }
 
+.footer-links {
+  font-family: var(--font-newsreader), "Newsreader", serif;
+  font-size: 13px;
+  color: #6B6560;
+  margin: 0 0 10px 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: #2F2F2F;
+  text-decoration: none;
+  border-bottom: 1px solid #D8D2C8;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #000;
+  border-bottom-color: #2F2F2F;
+}
+
+.footer-sep {
+  color: #C9C2B8;
+}
+
 /* ── Spacer before footer ── */
 .spacer-before-footer {
   height: 48px;
