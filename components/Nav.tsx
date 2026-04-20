@@ -14,7 +14,7 @@ export default function Nav() {
         <Link href="/" className="logo-font">
           agenticjournaling
         </Link>
-        <div className="nav-right">
+        <div className="nav-menu">
           <a
             href="mailto:info@agenticjournaling.com"
             className="mail-icon-link"
