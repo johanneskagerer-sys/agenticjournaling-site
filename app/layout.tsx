@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | agenticjournaling",
   },
   description:
-    "Journal · Listen · Integrate. Where your inner parts have agency — they listen along with what you journal, speak in their own voice, and help you to see, value and integrate what lives inside you.",
+    "An AI-supported journaling practice where your inner parts speak in their own voice — helping you see, value, and integrate what lives inside you.",
   openGraph: {
     siteName: "agenticjournaling",
     type: "website",
