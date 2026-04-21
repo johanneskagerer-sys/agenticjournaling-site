@@ -16,6 +16,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Fade-in (CSS-only, no JS required) ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInUp var(--fade-duration, 1s) ease var(--fade-delay, 0s) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}
+
 body {
   font-family: var(--font-inter), Arial, sans-serif;
   color: #333;
