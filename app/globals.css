@@ -175,7 +175,7 @@ body {
 
 .section-hero.section-hero-aj {
   min-height: 70vh;
-  padding: 80px 0 80px;
+  padding: 80px 0 40px;
   justify-content: flex-start;
 }
 
@@ -827,7 +827,7 @@ body {
 
 .section-weeks {
   background-color: #fafaf8;
-  padding: 96px 0 72px;
+  padding: 64px 0 72px;
 }
 
 .weeks-container {
