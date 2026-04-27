@@ -22,7 +22,7 @@ export default function FirstMovers() {
           </p>
           <p className="fm-note">
             We open the first cohort when six have gathered — likely end of
-            May 2026.
+            June 2026.
           </p>
           <p className="fm-sub">
             A few details, and we&apos;ll be in touch.
