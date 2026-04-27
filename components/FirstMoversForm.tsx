@@ -7,6 +7,8 @@ export default function FirstMoversForm() {
   const [lastName, setLastName] = useState("");
   const [timeZone, setTimeZone] = useState("");
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const timeZones = useMemo(() => {
     type IntlWithSupported = {
@@ -37,19 +39,31 @@ export default function FirstMoversForm() {
     }
   }, []);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const subject = encodeURIComponent(
-      "First Mover — interested in agenticjournaling"
-    );
-    const body = encodeURIComponent(
-      `Name:       ${firstName} ${lastName}
+  const subjectText = "First Mover — interested in agenticjournaling";
+  const bodyText = `Name:       ${firstName} ${lastName}
 Time zone:  ${timeZone}
 Email:      ${email}
 
-`
-    );
+`;
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const subject = encodeURIComponent(subjectText);
+    const body = encodeURIComponent(bodyText);
     window.location.href = `mailto:info@agenticjournaling.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  }
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(
+        `To: info@agenticjournaling.com\nSubject: ${subjectText}\n\n${bodyText}`
+      );
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard unavailable — user can still select the text manually
+    }
   }
 
   return (
@@ -120,6 +134,28 @@ Email:      ${email}
         This opens your mail client with your details attached. Write a line
         or two about why you&apos;re drawn to this, then send.
       </p>
+      {submitted && (
+        <div className="fm-fallback" role="status" aria-live="polite">
+          <p className="fm-fallback-lead">
+            If your mail app didn&apos;t open, write directly to{" "}
+            <a href="mailto:info@agenticjournaling.com" className="fm-fallback-link">
+              info@agenticjournaling.com
+            </a>{" "}
+            with your name and time zone.
+          </p>
+          <pre className="fm-fallback-block">{`To: info@agenticjournaling.com
+Subject: ${subjectText}
+
+${bodyText}`}</pre>
+          <button
+            type="button"
+            onClick={handleCopy}
+            className="fm-fallback-copy"
+          >
+            {copied ? "Copied" : "Copy message"}
+          </button>
+        </div>
+      )}
     </form>
   );
 }
