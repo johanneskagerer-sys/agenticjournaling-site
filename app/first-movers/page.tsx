@@ -16,9 +16,9 @@ export default function FirstMovers() {
         <FadeIn className="fm-container" duration={1.4}>
           <h1 className="fm-heading">First Movers</h1>
           <p className="fm-intro">
-            A small, curated cohort that tries agenticjournaling early —
-            shapes it through use, and helps the method find its voice with
-            real people.
+            A small, curated cohort — the first to live with agenticjournaling,
+            shape it through use, and help the method find its voice with real
+            people.
           </p>
           <p className="fm-note">
             We open the first cohort in early July 2026.
