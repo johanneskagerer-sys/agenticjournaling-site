@@ -39,81 +39,51 @@ export default function AgenticJournaling() {
 
       <section className="section-weeks">
         <FadeIn className="weeks-container" delay={0.2}>
-          <h2 className="weeks-heading">What eight weeks look like</h2>
+          <h2 className="weeks-heading">How the cohort works</h2>
           <p className="weeks-sub">
-            We connect weekly. From getting setup to a practice that stays
-            with you.
+            One kickoff to get you running, then we meet weekly — less a
+            lesson each time, more a return to share what changed.
           </p>
           <ol className="weeks-list">
             <li className="weeks-item">
               <span className="weeks-number">1</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">Arrive</h3>
+                <h3 className="weeks-title">Kickoff</h3>
                 <p className="weeks-desc">
-                  What this is, how we&apos;ll work, getting to know each other.
+                  The whole idea, and how it works. We set up together — an API
+                  key, a folder, a few minutes — and sit with a first session.
+                  You leave using it.
                 </p>
               </div>
             </li>
             <li className="weeks-item">
               <span className="weeks-number">2</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">Set up</h3>
+                <h3 className="weeks-title">What&apos;s showing up</h3>
                 <p className="weeks-desc">
-                  Claude on your machine, and a gentle AI intro.
+                  You&apos;ve been journaling on your own. We share the first
+                  patterns, the parts you&apos;re noticing — and what the method
+                  should do better.
                 </p>
               </div>
             </li>
             <li className="weeks-item">
               <span className="weeks-number">3</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">Try it</h3>
+                <h3 className="weeks-title">Going deeper</h3>
                 <p className="weeks-desc">
-                  First journaling session, sitting with the tool.
+                  Letting parts speak, and witnessing each other&apos;s
+                  committees.
                 </p>
               </div>
             </li>
             <li className="weeks-item">
               <span className="weeks-number">4</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">Notice</h3>
+                <h3 className="weeks-title">Into real life &amp; close</h3>
                 <p className="weeks-desc">
-                  Sharing what came up, patterns already visible.
-                </p>
-              </div>
-            </li>
-            <li className="weeks-item">
-              <span className="weeks-number">5</span>
-              <div className="weeks-body">
-                <h3 className="weeks-title">Meet your parts</h3>
-                <p className="weeks-desc">
-                  Naming the voices that showed up, giving each room.
-                </p>
-              </div>
-            </li>
-            <li className="weeks-item">
-              <span className="weeks-number">6</span>
-              <div className="weeks-body">
-                <h3 className="weeks-title">Let parts speak</h3>
-                <p className="weeks-desc">
-                  Part-to-part dialogue, witnessing others&apos; committees.
-                </p>
-              </div>
-            </li>
-            <li className="weeks-item">
-              <span className="weeks-number">7</span>
-              <div className="weeks-body">
-                <h3 className="weeks-title">Integrate</h3>
-                <p className="weeks-desc">
-                  Carrying the practice into a real week, a real decision.
-                </p>
-              </div>
-            </li>
-            <li className="weeks-item">
-              <span className="weeks-number">8</span>
-              <div className="weeks-body">
-                <h3 className="weeks-title">Close</h3>
-                <p className="weeks-desc">
-                  What shifted, how this stays alive after the cohort.
+                  Carrying it into a real decision — what shifted, how it stays
+                  alive, and where your experience says the method goes next.
                 </p>
               </div>
             </li>
