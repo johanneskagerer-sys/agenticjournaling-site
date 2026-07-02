@@ -35,6 +35,9 @@ export default function FirstMovers() {
 
       <section className="section-fm-form">
         <FadeIn className="fm-container" delay={0.2}>
+          <p className="fm-intro">
+            Be part of shaping how it finds its voice.
+          </p>
           <FirstMoversForm />
         </FadeIn>
       </section>
