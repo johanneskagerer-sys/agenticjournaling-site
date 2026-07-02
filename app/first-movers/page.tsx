@@ -21,12 +21,11 @@ export default function FirstMovers() {
             real people.
           </p>
           <p className="fm-note">
-            We open the first cohort in early July 2026, as soon as six have
-            gathered.
+            We open the first cohort in early July 2026.
           </p>
           <p className="fm-note">
             From the start, agenticjournaling will be available in English,
-            Thai, German, and Chinese.
+            Chinese, German, and Thai.
           </p>
           <p className="fm-sub">
             A few details, and we&apos;ll be in touch.
