@@ -43,7 +43,8 @@
   --accent-ink: #8f5b3c;
 
   /* ── motion — settles, never grabs ── */
-  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  /* one breath constellation-wide: the app's signature curve (its --ease) */
+  --ease-settle: cubic-bezier(0.22, 0.61, 0.36, 1);
   --dur-1: 200ms;  /* micro: hovers, color shifts */
   --dur-2: 320ms;  /* the arrival settle          */
 
@@ -76,8 +77,16 @@
 }
 
 [data-room="product"] {
-  --accent: #b47a5a;
-  --accent-ink: #8f5b3c;
+  /* Values sourced from the app (agenticjournaling-app src/app/styles/tokens.css)
+     — the room's strongest voice; the app is where these were AA-tuned for
+     inhabited sessions (Phase 4 brief, locked 2026-07-04). Site and app are
+     one room. Keep in sync via design/check-alignment.mjs. */
+  --ground: #f7f5f2;
+  --ink: #36302b;
+  --ink-soft: #6f6c66;
+  --line: #eae6e0;
+  --accent: #9c6a4d;
+  --accent-ink: #8a5c42;
 }
 
 /* ── quality floor (part of the canon) ── */
