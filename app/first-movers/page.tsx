@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import FirstMoversForm from "@/components/FirstMoversForm";
-import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -13,7 +12,7 @@ export default function FirstMovers() {
   return (
     <>
       <section className="section-fm-hero">
-        <FadeIn className="fm-container" duration={1.4}>
+        <div className="fm-container settle">
           <h1 className="fm-heading">First Movers</h1>
           <p className="fm-intro">
             A small, curated cohort — the first to live with agenticjournaling,
@@ -30,16 +29,16 @@ export default function FirstMovers() {
           <p className="fm-sub">
             A few details, and we&apos;ll be in touch.
           </p>
-        </FadeIn>
+        </div>
       </section>
 
       <section className="section-fm-form">
-        <FadeIn className="fm-container" delay={0.2}>
+        <div className="fm-container">
           <p className="fm-intro">
             Be part of shaping how it finds its voice.
           </p>
           <FirstMoversForm />
-        </FadeIn>
+        </div>
       </section>
 
       <Footer />
