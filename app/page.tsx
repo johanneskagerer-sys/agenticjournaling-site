@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import FadeIn from "@/components/FadeIn";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -13,7 +12,7 @@ export default function AgenticJournaling() {
   return (
     <>
       <section className="section-hero section-hero-aj">
-        <FadeIn className="hero-container" duration={1.4}>
+        <div className="hero-container settle">
           <h1 className="heading-main">
             Journal<span className="dot"> · </span>Listen
             <span className="dot"> · </span>Integrate
@@ -34,11 +33,11 @@ export default function AgenticJournaling() {
           >
             Join the First Movers <span className="cta-arrow">→</span>
           </Link>
-        </FadeIn>
+        </div>
       </section>
 
       <section className="section-weeks">
-        <FadeIn className="weeks-container" delay={0.2}>
+        <div className="weeks-container">
           <h2 className="weeks-heading">How the cohort works</h2>
           <p className="weeks-sub">
             One kickoff to get you running, then we meet weekly — less a
@@ -98,7 +97,7 @@ export default function AgenticJournaling() {
               Join the First Movers <span className="cta-arrow">→</span>
             </Link>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       <Footer />
