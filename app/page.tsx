@@ -31,7 +31,7 @@ export default function AgenticJournaling() {
             rel="noopener"
             className="cta-button"
           >
-            Join the First Movers <span className="cta-arrow">→</span>
+            Join the First Movers
           </Link>
         </div>
       </section>
@@ -40,8 +40,9 @@ export default function AgenticJournaling() {
         <div className="weeks-container">
           <h2 className="weeks-heading">How the cohort works</h2>
           <p className="weeks-sub">
-            One kickoff to get you running, then we meet weekly — less a
-            lesson each time, more a return to share what changed.
+            Once your token arrives, you can explore the app on desktop or
+            tablet. Shortly after, we&apos;ll have our kickoff – I&apos;ll be in
+            touch soon to schedule our first session.
           </p>
           <ol className="weeks-list">
             <li className="weeks-item">
@@ -49,40 +50,29 @@ export default function AgenticJournaling() {
               <div className="weeks-body">
                 <h3 className="weeks-title">Kickoff</h3>
                 <p className="weeks-desc">
-                  The whole idea, and how it works. We set up together — an API
-                  key, a folder, a few minutes — and sit with a first session.
-                  You leave using it.
+                  What was your first impression? What do you sense it&apos;s
+                  about, and how it works? Where could it feel easier or
+                  clearer?
                 </p>
               </div>
             </li>
             <li className="weeks-item">
               <span className="weeks-number">2</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">What&apos;s showing up</h3>
+                <h3 className="weeks-title">Going deeper</h3>
                 <p className="weeks-desc">
-                  You&apos;ve been journaling on your own. We share the first
-                  patterns, the parts you&apos;re noticing — and what the method
-                  should do better.
+                  What are you starting to see in yourself? What do you find
+                  yourself wishing for? And how do the translations feel?
                 </p>
               </div>
             </li>
             <li className="weeks-item">
               <span className="weeks-number">3</span>
               <div className="weeks-body">
-                <h3 className="weeks-title">Going deeper</h3>
-                <p className="weeks-desc">
-                  Letting parts speak, and witnessing each other&apos;s
-                  committees.
-                </p>
-              </div>
-            </li>
-            <li className="weeks-item">
-              <span className="weeks-number">4</span>
-              <div className="weeks-body">
                 <h3 className="weeks-title">Into real life &amp; close</h3>
                 <p className="weeks-desc">
-                  Carrying it into a real decision — what shifted, how it stays
-                  alive, and where your experience says the method goes next.
+                  Where did it meet a real decision? What shifted for you? Where
+                  should the method go next?
                 </p>
               </div>
             </li>
@@ -94,7 +84,7 @@ export default function AgenticJournaling() {
               rel="noopener"
               className="cta-button"
             >
-              Join the First Movers <span className="cta-arrow">→</span>
+              Join the First Movers
             </Link>
           </div>
         </div>

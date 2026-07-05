@@ -128,7 +128,7 @@ Email:      ${email}
         />
       </label>
       <button type="submit" className="fm-submit">
-        Compose my message →
+        Compose my message
       </button>
       <p className="fm-help">
         This opens your mail client with your details attached. Write a line

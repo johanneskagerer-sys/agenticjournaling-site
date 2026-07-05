@@ -204,19 +204,19 @@ body {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: var(--space-5);
   row-gap: var(--space-6);
   overflow: hidden; /* clips the path's outer bleed at the row edges */
 }
 
-/* a path with four stations: one hairline runs through the row, each clay
+/* a path with three stations: one hairline runs through the row, each clay
    numeral sits on it. The line segments bleed across the column gutters so
    the path reads as continuous. */
 .weeks-item {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-content: start; /* all four stations sit on one line, whatever the column height */
+  align-content: start; /* all three stations sit on one line, whatever the column height */
   align-items: center;
   row-gap: var(--space-3);
 }
@@ -305,14 +305,6 @@ body {
   background: color-mix(in srgb, var(--ink) 70%, black);
   transform: translateY(-2px);
   box-shadow: var(--shadow-2);
-}
-
-.cta-arrow {
-  transition: transform var(--dur-1) ease;
-}
-
-.cta-button:hover .cta-arrow {
-  transform: translateX(3px);
 }
 
 /* ── First Movers ── */
@@ -577,7 +569,7 @@ body {
    ───────────────────────────────────── */
 @media screen and (max-width: 991px) {
   .weeks-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .navbar-container {
