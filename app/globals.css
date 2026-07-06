@@ -7,6 +7,7 @@
 
 :root {
   --font-serif: var(--font-newsreader), Georgia, serif;
+  --navbar-h: 56px; /* matches .navbar min-height; used for hero clearance + anchor scroll */
 }
 
 @theme inline {
@@ -17,6 +18,7 @@
 html {
   overflow-y: scroll; /* always show scrollbar so navbar doesn't jump */
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-h); /* fixed navbar shouldn't cover anchor targets */
 }
 
 body {
@@ -109,7 +111,13 @@ body {
 }
 
 .section-hero.section-hero-aj {
-  padding: var(--space-8) 0 var(--space-7);
+  /* flex-start pins the h1 to the top; clear the fixed navbar + iOS safe area
+     without shrinking the desktop rhythm. max() keeps desktop at --space-8 (80px)
+     and lifts phones (space-8 floors at ~48px < 56px navbar) to a clearing value. */
+  padding: max(
+             var(--space-8),
+             calc(var(--navbar-h) + env(safe-area-inset-top, 0px) + var(--space-3))
+           ) 0 var(--space-7);
   justify-content: flex-start;
 }
 
