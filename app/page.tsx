@@ -40,9 +40,9 @@ export default function AgenticJournaling() {
         <div className="weeks-container">
           <h2 className="weeks-heading">How the cohort works</h2>
           <p className="weeks-sub">
-            Once your token arrives, you can explore the app on desktop or
-            tablet. Shortly after, we&apos;ll have our kickoff – I&apos;ll be in
-            touch soon to schedule our first session.
+            Once your token arrives, you can explore the app. Shortly after,
+            we&apos;ll have our kickoff – I&apos;ll be in touch soon to schedule
+            our first session.
           </p>
           <ol className="weeks-list">
             <li className="weeks-item">
