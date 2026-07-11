@@ -25,6 +25,11 @@ export default function AgenticJournaling() {
           <p className="paragraph-sub">
             Built to be inhabited, not subscribed to.
           </p>
+          <p className="hero-essay-link">
+            <Link href="/what-is-agentic-journaling">
+              What is agentic journaling?
+            </Link>
+          </p>
           <Link
             href="/first-movers"
             target="_blank"

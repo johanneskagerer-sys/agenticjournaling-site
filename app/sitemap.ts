@@ -18,5 +18,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${base}/what-is-agentic-journaling`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/de/what-is-agentic-journaling`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/zh/what-is-agentic-journaling`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/th/what-is-agentic-journaling`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
   ];
 }
