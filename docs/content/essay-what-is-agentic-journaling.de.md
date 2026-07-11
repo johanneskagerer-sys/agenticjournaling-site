@@ -8,7 +8,7 @@ Agentic Journaling dreht das Wort in die Gegenrichtung.
 
 Die Agency gehört hier nicht der KI. Sie gehört den Anteilen in dir, die schreiben.
 
-## woher die Praxis kommt
+## Woher die Praxis kommt
 
 Sieben Jahre habe ich mit einem Manuskript verbracht. Über viele Fassungen von *Unterwegs um anzukommen* – meinem Memoir darüber, dass Ankommen kein Ort ist, sondern eine Art zu sein – fiel mir etwas an den Stimmen auf meinen Seiten auf. Da war nicht ein Erzähler. Da war der, der plant; der, der trauert; der, der funktioniert; der, der nach Hause will. Jeder ehrliche Absatz gehörte jemand Bestimmtem.
 
@@ -16,7 +16,7 @@ Irgendwo in diesen Fassungen entstand eine Praxis. Ich begann, mit einer KI zu j
 
 Aus dieser Praxis wurde Agentic Journaling. Der Name kam später. Das Bedürfnis zuerst.
 
-## die Umkehrung
+## Die Umkehrung
 
 Die meisten KI-Journaling-Tools machen die Software zum Agenten. Sie taggt deine Gefühle, holt alte Einträge hervor, generiert Prompts, fasst zusammen, was deine Woche angeblich bedeutet hat. Manches davon ist wirklich nützlich. Und alles davon hält dich, ganz leise, auf dem Beifahrersitz: Die Maschine bemerkt, du empfängst den Bericht.
 
@@ -26,7 +26,7 @@ Viele Traditionen innerer Arbeit – darunter das Internal Family Systems – be
 
 Die Rolle der KI ist kleiner als in anderen Tools – und schwerer: den Raum halten, zurückgeben, was wirklich gesagt wurde, die Frage stellen, die einem Anteil zum nächsten wahren Satz verhilft – und niemals über den Raum hinwegsprechen.
 
-## die Praxis: schreiben, zuhören, integrieren
+## Die Praxis: schreiben, zuhören, integrieren
 
 Die Praxis bewegt sich in drei Gesten.
 
@@ -36,11 +36,11 @@ Die Praxis bewegt sich in drei Gesten.
 
 **Integrieren.** Dann die leisere Arbeit: Was schützt dieser Anteil? Was braucht er? Was soll der Rest von dir wissen? Integration ist keine Auflösung. Sie ist der Moment, in dem die Anteile lernen, dass sie im selben Haus wohnen.
 
-## was es nicht ist
+## Was es nicht ist
 
 Agentic Journaling ist eine Praxis, keine Therapie – und tut auch nicht so. Es automatisiert nichts, worauf es ankommt: Keine Einsicht wird stellvertretend erzeugt, keiner Woche eine Bedeutung zugewiesen, keinem Anteil gesagt, was er wirklich meint. Die Langsamkeit ist keine Schwäche. Sie ist die Methode.
 
-## eine Einladung
+## Eine Einladung
 
 Diese Praxis ist aus einem Buch übers Ankommen entstanden – [*Unterwegs um anzukommen*](https://johanneskagerer.de/unterwegsumanzukommen) – und trägt dieselbe Überzeugung: Der Weg nach Hause ist nicht schnellere Bewegung, sondern tieferes Zuhören.
 
