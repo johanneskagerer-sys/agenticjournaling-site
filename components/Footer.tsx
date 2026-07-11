@@ -5,11 +5,11 @@ export default function Footer() {
         <span>
           Born from{" "}
           <a
-            href="https://johanneskagerer.de/unterwegsumanzukommen"
+            href="https://learningtoarrive.com"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
-            <em>On the Way to Arrive</em>
+            <em>Learning to Arrive</em>
           </a>{" "}
           by{" "}
           <a href="https://johanneskagerer.de" target="_blank" rel="noopener">
