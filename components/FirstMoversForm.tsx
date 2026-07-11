@@ -2,13 +2,15 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
+type Status = "idle" | "sending" | "sent" | "nudge" | "hiccup";
+
 export default function FirstMoversForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [timeZone, setTimeZone] = useState("");
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
 
   const timeZones = useMemo(() => {
     type IntlWithSupported = {
@@ -33,37 +35,60 @@ export default function FirstMoversForm() {
   useEffect(() => {
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // Set after mount on purpose: reading the browser timezone during render
+      // would diverge from the prerendered HTML and cause a hydration mismatch.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (tz) setTimeZone(tz);
     } catch {
       // fallback: leave empty, user picks
     }
   }, []);
 
-  const subjectText = "First Mover — interested in agenticjournaling";
-  const bodyText = `Name:       ${firstName} ${lastName}
-Time zone:  ${timeZone}
-Email:      ${email}
-
-`;
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const subject = encodeURIComponent(subjectText);
-    const body = encodeURIComponent(bodyText);
-    window.location.href = `mailto:info@agenticjournaling.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/first-movers", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, timeZone, email }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        reason?: string;
+        message?: string;
+      };
+
+      if (res.ok && data.ok) {
+        setMessage(data.message ?? "Your invitation is on its way — check your inbox.");
+        setStatus("sent");
+        return;
+      }
+      if (data.reason === "invalid") {
+        setMessage(data.message ?? "Could you check that email address?");
+        setStatus("nudge");
+        return;
+      }
+      setMessage(
+        data.message ??
+          "Something hiccuped on our side. Please write us directly and we'll bring you in.",
+      );
+      setStatus("hiccup");
+    } catch {
+      setMessage(
+        "Something hiccuped on our side. Please write us directly and we'll bring you in.",
+      );
+      setStatus("hiccup");
+    }
   }
 
-  async function handleCopy() {
-    try {
-      await navigator.clipboard.writeText(
-        `To: info@agenticjournaling.com\nSubject: ${subjectText}\n\n${bodyText}`
-      );
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // clipboard unavailable — user can still select the text manually
-    }
+  // Confirmation replaces the form — the send is done, the page rests.
+  if (status === "sent") {
+    return (
+      <div className="fm-confirm" role="status" aria-live="polite">
+        <p className="fm-confirm-lead">{message}</p>
+      </div>
+    );
   }
 
   return (
@@ -127,33 +152,29 @@ Email:      ${email}
           className="fm-input"
         />
       </label>
-      <button type="submit" className="fm-submit">
-        Compose my message
+      <button type="submit" className="fm-submit" disabled={status === "sending"}>
+        {status === "sending" ? "Sending…" : "Send my invitation"}
       </button>
       <p className="fm-help">
-        This opens your mail client with your details attached. Write a line
-        or two about why you&apos;re drawn to this, then send.
+        Enter your details and your invitation arrives in your inbox, in a moment.
       </p>
-      {submitted && (
+
+      {status === "nudge" && (
+        <p className="fm-nudge" role="status" aria-live="polite">
+          {message}
+        </p>
+      )}
+
+      {status === "hiccup" && (
         <div className="fm-fallback" role="status" aria-live="polite">
           <p className="fm-fallback-lead">
-            If your mail app didn&apos;t open, write directly to{" "}
+            {message.replace(/\s*Please write us directly.*$/, "")} You can also write
+            directly to{" "}
             <a href="mailto:info@agenticjournaling.com" className="fm-fallback-link">
               info@agenticjournaling.com
             </a>{" "}
-            with your name and time zone.
+            with your name and time zone, and we&apos;ll bring you in.
           </p>
-          <pre className="fm-fallback-block">{`To: info@agenticjournaling.com
-Subject: ${subjectText}
-
-${bodyText}`}</pre>
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="fm-fallback-copy"
-          >
-            {copied ? "Copied" : "Copy message"}
-          </button>
         </div>
       )}
     </form>
