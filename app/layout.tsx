@@ -14,7 +14,7 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL("https://agenticjournaling.com"),
   title: {
-    default: "agenticjournaling — Journal · Listen · Integrate",
+    default: "agenticjournaling — Journal · Relate · Integrate",
     template: "%s | agenticjournaling",
   },
   description:

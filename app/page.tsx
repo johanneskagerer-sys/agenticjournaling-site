@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "agenticjournaling — Journal · Listen · Integrate",
+  title: "agenticjournaling — Journal · Relate · Integrate",
   description:
     "An AI-supported journaling practice where your inner parts speak in their own voice — helping you see, value, and integrate what lives inside you.",
 };
@@ -14,13 +14,13 @@ export default function AgenticJournaling() {
       <section className="section-hero section-hero-aj">
         <div className="hero-container settle">
           <h1 className="heading-main">
-            Journal<span className="dot"> · </span>Listen
+            Journal<span className="dot"> · </span>Relate
             <span className="dot"> · </span>Integrate
           </h1>
           <p className="paragraph-main">
-            Where your inner parts have agency — they listen along with what
-            you journal, speak in their own voice, and help you to see, value
-            and integrate what lives inside you.
+            Where your inner parts have agency — they meet what you journal,
+            speak in their own voice, and come into relationship with you —
+            helping you see, value and integrate what lives inside you.
           </p>
           <p className="paragraph-sub">
             Built to be inhabited, not subscribed to.
