@@ -1,9 +1,12 @@
-export default function Footer() {
+import { CHROME } from "@/lib/chrome";
+import type { Locale } from "@/lib/locale";
+
+export default function Footer({ locale = "en" }: { locale?: Locale }) {
   return (
     <footer className="footer-simple">
       <div className="footer-links">
         <span>
-          Born from{" "}
+          {CHROME[locale].footerBornFrom}{" "}
           <a
             href="https://learningtoarrive.com"
             target="_blank"

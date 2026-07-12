@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
 import Nav from "@/components/Nav";
-import "../design/tokens.css";
-import "./globals.css";
+// Both root layouts must import BOTH stylesheets — tokens.css carries every
+// design variable; globals.css only consumes them.
+import "../../design/tokens.css";
+import "../globals.css";
+
+// Second root layout (see app/(locale)/[locale]/layout.tsx for why there are
+// two). Pages here aren't localized yet — /first-movers holds for the next
+// slice per BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md Amendment 1 — so lang
+// stays fixed at "en", exactly as on today's site.
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",
@@ -11,6 +18,8 @@ const newsreader = Newsreader({
   style: ["normal", "italic"],
 });
 
+// Verbatim the old single root layout's metadata — pages here are untouched
+// by the locale work and must keep their exact head output.
 export const metadata: Metadata = {
   metadataBase: new URL("https://agenticjournaling.com"),
   title: {
@@ -26,15 +35,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function MarketingLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" data-room="product" className={newsreader.variable}>
       <body>
-        <Nav />
+        <Nav locale="en" />
         {children}
       </body>
     </html>

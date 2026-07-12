@@ -2,14 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { parseEssay, inlineText } from "@/lib/essayMarkdown.mjs";
+import { localePath, hreflangAlternates, type Locale } from "@/lib/locale";
 
 // "What is Agentic Journaling?" — one essay, four locales. The markdown files
 // in docs/content/ are the author-approved source of truth (render verbatim;
 // see docs/brief-essay-four-languages.md §0). "Agentic Journaling" is never
 // translated. en is the default locale and lives unprefixed.
+// Locale set + route path logic now live in lib/locale.ts (shared with the
+// homepage and the nav switcher — see BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md).
 
 export const ESSAY_LOCALES = ["en", "de", "zh", "th"] as const;
-export type EssayLocale = (typeof ESSAY_LOCALES)[number];
+export type EssayLocale = Locale;
 
 // Mirrors the JSDoc typedefs in lib/essayMarkdown.mjs (kept there so the
 // verbatim check script can run the same parser under plain node).
@@ -22,10 +25,9 @@ export type InlineNode =
 export type EssayBlock = { type: "h1" | "h2" | "p"; inlines: InlineNode[] };
 
 const BASE = "https://agenticjournaling.com";
-const SLUG = "what-is-agentic-journaling";
 
 export function essayPath(locale: EssayLocale): string {
-  return locale === "en" ? `/${SLUG}` : `/${locale}/${SLUG}`;
+  return localePath(locale, "essay");
 }
 
 // Title/description pairs locked in docs/brief-essay-four-languages.md §1
@@ -54,21 +56,13 @@ const META: Record<EssayLocale, { title: string; description: string }> = {
   },
 };
 
-const HREFLANG_ALTERNATES = {
-  en: `${BASE}${essayPath("en")}`,
-  de: `${BASE}${essayPath("de")}`,
-  zh: `${BASE}${essayPath("zh")}`,
-  th: `${BASE}${essayPath("th")}`,
-  "x-default": `${BASE}${essayPath("en")}`,
-};
-
 export function essayMetadata(locale: EssayLocale): Metadata {
   return {
     title: META[locale].title,
     description: META[locale].description,
     alternates: {
       canonical: `${BASE}${essayPath(locale)}`,
-      languages: HREFLANG_ALTERNATES,
+      languages: hreflangAlternates("essay"),
     },
   };
 }
