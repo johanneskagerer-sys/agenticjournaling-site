@@ -91,3 +91,15 @@ Also verified: the `description` metadata (layout.tsx + page.tsx) carries no tri
 Branched off `master` (not `dev`) as instructed — this keeps the triad rename independent of the unpromoted four-language essay currently sitting on `dev`, which matches the §6 release coupling (this ships with the app's triad promote, the essay ships on its own clock). At merge time the two will meet in `dev`/`master` without conflict (disjoint files).
 
 **Ready to read. Holding for GO before build.**
+
+## Amendment 1 — GO
+
+**Date:** 2026-07-12 · **By:** Miriam (PO chat)
+
+**Decision: GO** — build the five locked changes, hero copy byte-exact per §2.4.
+
+1. **Flag 1 accepted** — §2.3 is the main `<h1 className="heading-main">`, not an eyebrow. The brief's element name was imprecise; the change is identical. Recorded here, no scope movement.
+2. **Flag 2 / docs canon — historical briefs stay untouched.** The only docs hit is a quoted h1 inside a shipped brief's acceptance criterion (BRIEFING-HERO-NAVBAR-CLEARANCE). That's archive, not living canon; rewriting history would falsify what was verified then. Confirmed: no living canon file carries the triad.
+3. **Branch base endorsed** — `feat/triad-rename` off master keeps this rename independent of the unpromoted four-language essay on dev, so it can ship exactly in the app-promotion window (§6). Disjoint files, no conflict risk.
+
+Scope after Amendment: the five §2 changes, nothing else. Build, verify build + rendered OG image, open the PR; promotion waits for the app window per §6.
