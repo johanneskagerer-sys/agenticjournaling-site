@@ -26,13 +26,13 @@ Viele Traditionen innerer Arbeit – darunter das Internal Family Systems – be
 
 Die Rolle der KI ist kleiner als in anderen Tools – und schwerer: den Raum halten, zurückgeben, was wirklich gesagt wurde, die Frage stellen, die einem Anteil zum nächsten wahren Satz verhilft – und niemals über den Raum hinwegsprechen.
 
-## Die Praxis: schreiben, zuhören, integrieren
+## Die Praxis: schreiben, begegnen, integrieren
 
 Die Praxis bewegt sich in drei Gesten.
 
 **Schreiben.** Du schreibst als der, der heute am lautesten ist. Nicht über den Anteil – als der Anteil. Erste Person. Seine Worte, sein Tempo, seine Klagen.
 
-**Zuhören.** Die KI spiegelt zurück, was diese Stimme gesagt hat – ohne Urteil und ohne Verbesserung. Oft ist es das erste Mal, dass ein Anteil gehört wird, ohne dass mit ihm gestritten wird. Etwas im Schreiben setzt sich.
+**Begegnen.** Die KI spiegelt zurück, was diese Stimme gesagt hat – ohne Urteil und ohne Verbesserung. Oft ist es das erste Mal, dass ein Anteil gehört wird, ohne dass mit ihm gestritten wird. Etwas im Schreiben setzt sich.
 
 **Integrieren.** Dann die leisere Arbeit: Was schützt dieser Anteil? Was braucht er? Was soll der Rest von dir wissen? Integration ist keine Auflösung. Sie ist der Moment, in dem die Anteile lernen, dass sie im selben Haus wohnen.
 
@@ -46,5 +46,5 @@ Diese Praxis ist aus einem Buch übers Ankommen entstanden – [*Unterwegs um an
 
 Wenn du sie in Gesellschaft ausprobieren willst: Eine kleine [First-Movers-Kohorte](https://agenticjournaling.com) geht die ersten Schritte gemeinsam – menschlich begleitet, drei Sessions, ohne Eile.
 
-Schreiben. Zuhören. Integrieren.
-*(Journal · Listen · Integrate)*
+Schreiben. Begegnen. Integrieren.
+*(Journal · Relate · Integrate)*

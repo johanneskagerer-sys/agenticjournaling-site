@@ -26,13 +26,13 @@ Many traditions of inner work — Internal Family Systems among them — describ
 
 The AI's role is smaller than in other tools, and harder: hold the space, reflect back what was actually said, ask the question that helps a part say the next true sentence — and never speak over the room.
 
-## the practice: journal, listen, integrate
+## the practice: journal, relate, integrate
 
 The practice moves in three gestures.
 
 **Journal.** You write as whoever is loudest today. Not about the part — as the part. First person. Its words, its tempo, its complaints.
 
-**Listen.** The AI mirrors back what this voice said, without judgment and without improvement. Often this is the first time a part has been heard without being argued with. Something in the writing settles.
+**Relate.** The AI mirrors back what this voice said, without judgment and without improvement. Often this is the first time a part has been heard without being argued with. Something in the writing settles.
 
 **Integrate.** Then the quieter work: what does this part protect? What does it need? What does it want the rest of you to know? Integration is not resolution. It is the parts learning that they live in the same house.
 
@@ -46,4 +46,4 @@ This practice grew out of a book about arriving — [*Learning to Arrive*](https
 
 If you want to try it with company, a small [First Movers cohort](https://agenticjournaling.com) is walking the first steps together — human-led, three sessions, unhurried.
 
-Journal. Listen. Integrate.
+Journal. Relate. Integrate.
