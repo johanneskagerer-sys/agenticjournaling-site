@@ -34,9 +34,13 @@ function localeFromFirstSegment(pathname: string): Locale | null {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // "/en" isn't a canonical URL — en lives unprefixed. Redirect to the clean
-  // path and remember the explicit choice.
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
+  // "/en" and "/en/<essay>" aren't canonical URLs — en lives unprefixed.
+  // Redirect to the clean path and remember the explicit choice. Scoped to
+  // just these two real pages (not a blanket "/en/" prefix strip): the
+  // [locale] segment also generates its own per-locale metadata routes
+  // (opengraph-image, twitter-image, ...) under "/en/...", and those must
+  // resolve as-is — they have no unprefixed counterpart to redirect to.
+  if (pathname === "/en" || pathname === `/en/${ESSAY_SLUG}`) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(3) || "/";
     const res = NextResponse.redirect(url, 307);
