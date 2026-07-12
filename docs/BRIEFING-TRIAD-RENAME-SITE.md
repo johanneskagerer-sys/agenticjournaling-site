@@ -74,7 +74,7 @@ Case-sensitive `Listen` across `app/`, `components/`, `public/`: **exactly the f
 
 **Flag 1 — naming precision:** 2.3 is the main `<h1 className="heading-main">`, not an eyebrow. Same change, correct element named here for the record.
 
-**Flag 2 — docs canon:** the only `docs/` hit besides this brief is `BRIEFING-HERO-NAVBAR-CLEARANCE.md:41`, where the old h1 is quoted inside a **historical acceptance criterion** of a shipped brief. That is a record of a past change, not living copy canon — updating it would falsify the archive. **Recommendation: leave historical briefs untouched.** There are no living copy-canon files carrying the triad. (`design/` does not exist in this repo; the sweep covered everything else.)
+**Flag 2 — docs canon:** the only `docs/` hit besides this brief is `BRIEFING-HERO-NAVBAR-CLEARANCE.md:41`, where the old h1 is quoted inside a **historical acceptance criterion** of a shipped brief. That is a record of a past change, not living copy canon — updating it would falsify the archive. **Recommendation: leave historical briefs untouched.** There are no living copy-canon files carrying the triad. (`design/` holds only `tokens.css` — swept, clean.)
 
 Also verified: the `description` metadata (layout.tsx + page.tsx) carries no triad word — stays; /first-movers, the invitation email, Nav and Footer are triad-free, matching §3.
 
