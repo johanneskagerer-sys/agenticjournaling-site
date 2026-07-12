@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
 import { LOCALES, isLocale } from "@/lib/locale";
 // Both root layouts must import BOTH stylesheets — tokens.css carries every
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
       <body>
         <Nav locale={locale} />
         {children}
+        <Analytics />
       </body>
     </html>
   );

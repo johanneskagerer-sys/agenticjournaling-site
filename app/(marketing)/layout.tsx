@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
 // Both root layouts must import BOTH stylesheets — tokens.css carries every
 // design variable; globals.css only consumes them.
@@ -45,6 +46,7 @@ export default function MarketingLayout({
       <body>
         <Nav locale="en" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
