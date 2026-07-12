@@ -10,14 +10,15 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             <em>Learning to Arrive</em>
-          </a>{" "}
-          by{" "}
-          <a href="https://johanneskagerer.de" target="_blank" rel="noopener">
-            Johannes Kagerer
           </a>
         </span>
       </div>
-      <p>&copy; 2026 Johannes Kagerer</p>
+      <p>
+        &copy; 2026{" "}
+        <a href="https://johanneskagerer.de" target="_blank" rel="noopener">
+          Johannes Kagerer
+        </a>
+      </p>
     </footer>
   );
 }
