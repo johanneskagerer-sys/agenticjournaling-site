@@ -97,6 +97,76 @@ body {
   height: 20px;
 }
 
+/* ── Language switcher ──
+   One quiet word (the current language); the other three open on click in
+   a small panel. <details>/<summary>, no flags, no glyphs. */
+.lang-switcher {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: var(--step--1);
+  padding: 0 var(--space-3);
+  margin-right: var(--space-1);
+}
+
+.lang-current {
+  list-style: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: color var(--dur-1) ease;
+}
+
+.lang-current::-webkit-details-marker {
+  display: none;
+}
+
+.lang-current:hover,
+.lang-switcher[open] .lang-current {
+  color: var(--ink);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--ground);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius-1);
+  box-shadow: var(--shadow-2);
+  animation: lang-menu-in var(--dur-1) ease both;
+}
+
+@keyframes lang-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-menu {
+    animation: none;
+  }
+}
+
+.lang-link {
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-1) ease;
+}
+
+.lang-link:hover {
+  color: var(--ink);
+}
+
 /* ── Hero / Main section (home) ── */
 .section-hero {
   color: var(--ink);

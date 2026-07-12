@@ -75,7 +75,7 @@ export default function EssayPage({ locale }: { locale: EssayLocale }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: essayJsonLd(locale, headline) }}
       />
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }
