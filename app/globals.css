@@ -97,6 +97,37 @@ body {
   height: 20px;
 }
 
+/* ── Language switcher ── */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: var(--step--1);
+  padding: 0 var(--space-3);
+  border-right: var(--hairline) solid var(--line);
+  margin-right: var(--space-1);
+}
+
+.lang-dot {
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.lang-current {
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.lang-link {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color var(--dur-1) ease;
+}
+
+.lang-link:hover {
+  color: var(--ink);
+}
+
 /* ── Hero / Main section (home) ── */
 .section-hero {
   color: var(--ink);

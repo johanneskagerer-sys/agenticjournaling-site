@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
 import Nav from "@/components/Nav";
-import "../design/tokens.css";
-import "./globals.css";
+import "../globals.css";
+
+// Second root layout (see app/(locale)/[locale]/layout.tsx for why there are
+// two). Pages here aren't localized yet — /first-movers holds for the next
+// slice per BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md Amendment 1 — so lang
+// stays fixed at "en", exactly as on today's site.
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",
@@ -13,28 +17,17 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://agenticjournaling.com"),
-  title: {
-    default: "agenticjournaling — Journal · Relate · Integrate",
-    template: "%s | agenticjournaling",
-  },
-  description:
-    "An AI-supported journaling practice where your inner parts speak in their own voice — helping you see, value, and integrate what lives inside you.",
-  openGraph: {
-    siteName: "agenticjournaling",
-    type: "website",
-    locale: "en_US",
-  },
 };
 
-export default function RootLayout({
+export default function MarketingLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" data-room="product" className={newsreader.variable}>
       <body>
-        <Nav />
+        <Nav locale="en" />
         {children}
       </body>
     </html>
