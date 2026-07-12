@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const dynamic = "force-static";
+// `dynamic` is route-segment config — Next.js requires it declared literally
+// in each app/**/opengraph-image.tsx file, not re-exported from here.
 export const alt = "agenticjournaling — Journal · Relate · Integrate";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
