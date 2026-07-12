@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { Newsreader } from "next/font/google";
 import Nav from "@/components/Nav";
 import { LOCALES, isLocale } from "@/lib/locale";
+// Both root layouts must import BOTH stylesheets — tokens.css carries every
+// design variable; globals.css only consumes them.
+import "../../../design/tokens.css";
 import "../../globals.css";
 
 // One of two root layouts (Next.js "multiple root layouts" via route groups —

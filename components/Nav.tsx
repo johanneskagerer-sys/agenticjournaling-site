@@ -57,14 +57,18 @@ export default function Nav({ locale }: { locale: Locale }) {
                     {LOCALE_LABELS[l]}
                   </span>
                 ) : (
-                  <Link
+                  // Plain <a>, not <Link>: Link prefetches the target with the
+                  // OLD locale cookie still set and caches the resulting
+                  // redirect — clicking EN on /de could bounce straight back
+                  // to German. A full request runs after rememberLocale().
+                  <a
                     href={localePath(l, route)}
                     hrefLang={l}
                     className="lang-link"
                     onClick={() => rememberLocale(l)}
                   >
                     {LOCALE_LABELS[l]}
-                  </Link>
+                  </a>
                 )}
               </Fragment>
             ))}

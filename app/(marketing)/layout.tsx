@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
 import Nav from "@/components/Nav";
+// Both root layouts must import BOTH stylesheets — tokens.css carries every
+// design variable; globals.css only consumes them.
+import "../../design/tokens.css";
 import "../globals.css";
 
 // Second root layout (see app/(locale)/[locale]/layout.tsx for why there are
@@ -15,8 +18,21 @@ const newsreader = Newsreader({
   style: ["normal", "italic"],
 });
 
+// Verbatim the old single root layout's metadata — pages here are untouched
+// by the locale work and must keep their exact head output.
 export const metadata: Metadata = {
   metadataBase: new URL("https://agenticjournaling.com"),
+  title: {
+    default: "agenticjournaling — Journal · Relate · Integrate",
+    template: "%s | agenticjournaling",
+  },
+  description:
+    "An AI-supported journaling practice where your inner parts speak in their own voice — helping you see, value, and integrate what lives inside you.",
+  openGraph: {
+    siteName: "agenticjournaling",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function MarketingLayout({
