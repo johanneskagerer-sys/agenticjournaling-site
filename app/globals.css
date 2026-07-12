@@ -97,30 +97,69 @@ body {
   height: 20px;
 }
 
-/* ── Language switcher ── */
+/* ── Language switcher ──
+   One quiet word (the current language); the other three open on click in
+   a small panel. <details>/<summary>, no flags, no glyphs. */
 .lang-switcher {
-  display: flex;
-  align-items: center;
+  position: relative;
   font-family: var(--font-serif);
   font-size: var(--step--1);
   padding: 0 var(--space-3);
-  border-right: var(--hairline) solid var(--line);
   margin-right: var(--space-1);
 }
 
-.lang-dot {
+.lang-current {
+  list-style: none;
+  cursor: pointer;
   color: var(--ink-soft);
-  opacity: 0.6;
+  transition: color var(--dur-1) ease;
 }
 
-.lang-current {
+.lang-current::-webkit-details-marker {
+  display: none;
+}
+
+.lang-current:hover,
+.lang-switcher[open] .lang-current {
   color: var(--ink);
-  opacity: 0.9;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--ground);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius-1);
+  box-shadow: var(--shadow-2);
+  animation: lang-menu-in var(--dur-1) ease both;
+}
+
+@keyframes lang-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-menu {
+    animation: none;
+  }
 }
 
 .lang-link {
   color: var(--ink-soft);
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--dur-1) ease;
 }
 
