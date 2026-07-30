@@ -66,6 +66,7 @@
 [data-room="hub"] {
   --ground: #F7F5F2;
   --line: #DDDCD8;         /* elegant grey — the logo's silver diamond, as a hairline  */
+  --silver: #CECECE;       /* the logo diamond's corner silver (sampled) — quiet UI marks */
   --accent: #E8C840;       /* the logo's gold center — surfaces, borders, hovers only */
   --accent-ink: #8a6a3e;   /* gold darkened for text (AA 4.6:1 on ground)             */
   --halo: rgb(255 220 170); /* the portrait's warm glow                                */
