@@ -15,7 +15,7 @@ import {
 
 // Which of the two localized surfaces the visitor is currently on, so the
 // switcher keeps them on the same page in the new language instead of
-// bouncing to the homepage. Anything else (currently just /first-movers,
+// bouncing to the homepage. Anything else (currently just /step-in,
 // which isn't localized yet) falls back to "home".
 function currentRoute(pathname: string): RouteKey {
   const match = pathname.match(/^\/(de|zh|th)(\/.*)?$/);

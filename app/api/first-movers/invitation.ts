@@ -1,7 +1,8 @@
-// The approved First Movers invitation email (design asset, unchanged in look).
+// The approved invitation email (design asset, unchanged in look). Sent from
+// /step-in; copy speaks of a live product since 2026-11-08 (BRIEFING-STEP-IN).
 // The route interpolates the recipient's first name; everything else is static.
 //
-// The "Step in" deep-link carries ONE shared First Movers token. Per the token
+// The "Step in" deep-link carries ONE shared token (historically "first-movers"). Per the token
 // design (agenticjournaling/scripts/sign-token.mjs) the private key never leaves
 // Johannes's machine, so nothing is minted on the server — this is a single token
 // he signs offline once and drops in here (or, preferred, sets as FIRST_MOVERS_TOKEN
@@ -42,7 +43,7 @@ export function renderInvitation(firstName: string): string {
 
   <!-- preheader (hidden) -->
   <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
-    The beta is open — step in, in your language.
+    agenticjournaling is ready — step in, in your language.
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f7f5f2;">
@@ -68,8 +69,8 @@ export function renderInvitation(firstName: string): string {
               <div style="font-family:Georgia,'Times New Roman',serif; font-size:22px; color:#36302b; padding-bottom:20px;">Hi ${name},</div>
 
               <div style="font-size:15px; line-height:24px; color:#55504a; padding-bottom:18px;">
-                You signed up as one of our First Movers &mdash; I&rsquo;m glad you&rsquo;re here.
-                The beta of <strong>agenticjournaling</strong> is ready, and it&rsquo;s yours to explore.
+                You asked to step in &mdash; I&rsquo;m glad you&rsquo;re here.
+                <strong>agenticjournaling</strong> is ready, and it&rsquo;s yours to explore.
               </div>
 
               <div style="font-size:15px; line-height:24px; color:#55504a; padding-bottom:26px;">
@@ -99,7 +100,8 @@ export function renderInvitation(firstName: string): string {
             <td align="center" style="padding:34px 44px 0 44px; font-family:Arial,Helvetica,sans-serif;">
               <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; color:#36302b; padding-bottom:10px;">What&rsquo;s next?</div>
               <div style="font-size:14.5px; line-height:22px; color:#55504a; padding-bottom:24px;">
-                Start exploring and I will be in touch soon to schedule the first session.
+                Start exploring. Whenever you like, we talk &mdash; about what you notice, at your pace.
+                I carry the costs for now and I am curious what it does for people &mdash; for people like you. Three things I&rsquo;d love to hear:
               </div>
             </td>
           </tr>
@@ -109,8 +111,8 @@ export function renderInvitation(firstName: string): string {
             <td align="center" style="padding:0 44px; font-family:Arial,Helvetica,sans-serif;">
 
               <div style="padding-bottom:20px;">
-                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">1</span> &middot; Kickoff</div>
-                <div style="font-size:13px; line-height:20px; color:#6f6c66;">What was your first impression? What do you sense it&rsquo;s about, and how it works? Where could it feel easier or clearer?</div>
+                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">1</span> &middot; First impressions</div>
+                <div style="font-size:13px; line-height:20px; color:#6f6c66;">What do you sense it&rsquo;s about, and how it works? Where could it feel easier or clearer?</div>
               </div>
 
               <div style="padding-bottom:20px;">
@@ -119,7 +121,7 @@ export function renderInvitation(firstName: string): string {
               </div>
 
               <div style="padding-bottom:6px;">
-                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">3</span> &middot; Into real life &amp; close</div>
+                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">3</span> &middot; Into real life</div>
                 <div style="font-size:13px; line-height:20px; color:#6f6c66;">Where did it meet a real decision? What shifted for you? Where should the method go next?</div>
               </div>
 
@@ -161,7 +163,7 @@ export function renderInvitation(firstName: string): string {
                   </td>
                 </tr>
               </table>
-              <div style="font-family:Arial,Helvetica,sans-serif; font-size:11.5px; color:#8a857e; padding-bottom:3px;">work in progress by</div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:11.5px; color:#8a857e; padding-bottom:3px;">made by</div>
               <div style="font-family:Georgia,'Times New Roman',serif; font-size:15px; padding-bottom:8px;"><a href="https://authenticarriving.com/" target="_blank" style="color:#36302b; text-decoration:none;">Authentic Arriving</a></div>
               <div style="padding-bottom:8px;">
                 <a href="mailto:info@agenticjournaling.com" style="color:#9c6a4d; text-decoration:none; font-size:15px;">&#9993;</a>

@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Status = "idle" | "sending" | "sent" | "nudge" | "hiccup";
 
-export default function FirstMoversForm() {
+export default function StepInForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [timeZone, setTimeZone] = useState("");

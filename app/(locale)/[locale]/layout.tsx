@@ -13,7 +13,7 @@ import "../../globals.css";
 // localized page (homepage, essay) and sets <html lang> per locale — the
 // thing a single shared root layout structurally cannot do. The other root,
 // app/(marketing)/layout.tsx, keeps today's fixed lang="en" for pages that
-// aren't localized yet (/first-movers).
+// aren't localized yet (/step-in).
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",
