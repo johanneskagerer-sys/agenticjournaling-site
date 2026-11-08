@@ -44,7 +44,7 @@ Agentic Journaling 是一种练习，不是心理治疗，它也不假装是。�
 
 这个练习源自一本关于"抵达"的书——[《Learning to Arrive》](https://learningtoarrive.com)——并带着同一个信念：回家的路不在于走得更快，而在于听得更深。
 
-如果你想有人同行地试一试：一个小小的 [First Movers 共学小组](https://agenticjournaling.com)正在一起走最初的几步——由真人带领，三次会面，不慌不忙。
+如果你想试一试：[走进来](https://agenticjournaling.com/step-in)——agenticjournaling 是一个安静、私密的地方，供你进行这项练习，用你的语言，按你的节奏。
 
 书写。相遇。整合。
 *(Journal · Relate · Integrate)*

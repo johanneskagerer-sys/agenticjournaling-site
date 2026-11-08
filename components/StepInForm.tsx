@@ -1,10 +1,15 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { STEP_IN } from "@/lib/stepIn";
+import type { Locale } from "@/lib/locale";
 
 type Status = "idle" | "sending" | "sent" | "nudge" | "hiccup";
 
-export default function StepInForm() {
+const CONTACT = "info@agenticjournaling.com";
+
+export default function StepInForm({ locale }: { locale: Locale }) {
+  const t = STEP_IN[locale].form;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [timeZone, setTimeZone] = useState("");
@@ -27,6 +32,7 @@ export default function StepInForm() {
       "America/New_York",
       "America/Los_Angeles",
       "Asia/Bangkok",
+      "Asia/Shanghai",
       "Asia/Tokyo",
       "UTC",
     ];
@@ -51,7 +57,7 @@ export default function StepInForm() {
       const res = await fetch("/api/first-movers", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, timeZone, email }),
+        body: JSON.stringify({ firstName, lastName, timeZone, email, locale }),
       });
       const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
@@ -60,24 +66,19 @@ export default function StepInForm() {
       };
 
       if (res.ok && data.ok) {
-        setMessage(data.message ?? "Your invitation is on its way — check your inbox.");
+        setMessage(data.message ?? t.confirm);
         setStatus("sent");
         return;
       }
       if (data.reason === "invalid") {
-        setMessage(data.message ?? "Could you check that email address?");
+        setMessage(data.message ?? t.nudge);
         setStatus("nudge");
         return;
       }
-      setMessage(
-        data.message ??
-          "Something hiccuped on our side. Please write us directly and we'll bring you in.",
-      );
+      setMessage(t.hiccup);
       setStatus("hiccup");
     } catch {
-      setMessage(
-        "Something hiccuped on our side. Please write us directly and we'll bring you in.",
-      );
+      setMessage(t.hiccup);
       setStatus("hiccup");
     }
   }
@@ -91,12 +92,16 @@ export default function StepInForm() {
     );
   }
 
+  // The fallback names the inbox as a link; the sentence around it comes from
+  // the locale with {email} as the seam.
+  const [tailBefore, tailAfter] = t.hiccupTail.split("{email}");
+
   return (
     <form className="fm-form" onSubmit={handleSubmit}>
       <div className="fm-row fm-row-2">
         <label className="fm-field">
           <span className="fm-label">
-            First name <span className="fm-required">*</span>
+            {t.firstName} <span className="fm-required">*</span>
           </span>
           <input
             type="text"
@@ -108,7 +113,7 @@ export default function StepInForm() {
         </label>
         <label className="fm-field">
           <span className="fm-label">
-            Last name <span className="fm-required">*</span>
+            {t.lastName} <span className="fm-required">*</span>
           </span>
           <input
             type="text"
@@ -121,7 +126,7 @@ export default function StepInForm() {
       </div>
       <label className="fm-field">
         <span className="fm-label">
-          Time zone <span className="fm-required">*</span>
+          {t.timeZone} <span className="fm-required">*</span>
         </span>
         <input
           type="text"
@@ -129,7 +134,7 @@ export default function StepInForm() {
           list="fm-timezones"
           value={timeZone}
           onChange={(e) => setTimeZone(e.target.value)}
-          placeholder="Start typing — e.g. Berlin"
+          placeholder={t.tzPlaceholder}
           className="fm-input"
           autoComplete="off"
         />
@@ -141,7 +146,7 @@ export default function StepInForm() {
       </label>
       <label className="fm-field">
         <span className="fm-label">
-          Email <span className="fm-required">*</span>
+          {t.email} <span className="fm-required">*</span>
         </span>
         <input
           type="email"
@@ -153,11 +158,9 @@ export default function StepInForm() {
         />
       </label>
       <button type="submit" className="fm-submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Send my invitation"}
+        {status === "sending" ? t.sending : t.send}
       </button>
-      <p className="fm-help">
-        Enter your details and your invitation arrives in your inbox, in a moment.
-      </p>
+      <p className="fm-help">{t.help}</p>
 
       {status === "nudge" && (
         <p className="fm-nudge" role="status" aria-live="polite">
@@ -168,12 +171,11 @@ export default function StepInForm() {
       {status === "hiccup" && (
         <div className="fm-fallback" role="status" aria-live="polite">
           <p className="fm-fallback-lead">
-            {message.replace(/\s*Please write us directly.*$/, "")} You can also write
-            directly to{" "}
-            <a href="mailto:info@agenticjournaling.com" className="fm-fallback-link">
-              info@agenticjournaling.com
-            </a>{" "}
-            with your name and time zone, and we&apos;ll bring you in.
+            {message} {tailBefore}
+            <a href={`mailto:${CONTACT}`} className="fm-fallback-link">
+              {CONTACT}
+            </a>
+            {tailAfter}
           </p>
         </div>
       )}

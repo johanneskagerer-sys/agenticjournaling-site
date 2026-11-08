@@ -10,10 +10,9 @@ import "../../globals.css";
 
 // One of two root layouts (Next.js "multiple root layouts" via route groups —
 // see docs/BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md). This one owns every
-// localized page (homepage, essay) and sets <html lang> per locale — the
-// thing a single shared root layout structurally cannot do. The other root,
-// app/(marketing)/layout.tsx, keeps today's fixed lang="en" for pages that
-// aren't localized yet (/step-in).
+// localized page (homepage, essay, step-in) and sets <html lang> per locale —
+// the thing a single shared root layout structurally cannot do. It is the only
+// root layout since 2026-11-08: the former app/(marketing)/ group is gone.
 
 const newsreader = Newsreader({
   variable: "--font-newsreader",

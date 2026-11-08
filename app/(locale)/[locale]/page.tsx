@@ -47,12 +47,7 @@ export default async function Home({
           <p className="hero-essay-link">
             <Link href={essayHref}>{t.essayLink}</Link>
           </p>
-          <Link
-            href="/step-in"
-            target="_blank"
-            rel="noopener"
-            className="cta-button"
-          >
+          <Link href={localePath(locale, "stepin")} className="cta-button">
             {t.cta}
           </Link>
         </div>
@@ -74,12 +69,7 @@ export default async function Home({
             ))}
           </ol>
           <div className="weeks-cta">
-            <Link
-              href="/step-in"
-              target="_blank"
-              rel="noopener"
-              className="cta-button"
-            >
+            <Link href={localePath(locale, "stepin")} className="cta-button">
               {t.cta}
             </Link>
           </div>

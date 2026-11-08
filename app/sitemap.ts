@@ -21,14 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: locale === "en" ? 0.7 : 0.6,
   }));
 
-  return [
-    ...homeEntries,
-    {
-      url: `${base}/step-in`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    ...essayEntries,
-  ];
+  const stepInEntries: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
+    url: `${base}${localePath(locale, "stepin")}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: locale === "en" ? 0.8 : 0.7,
+  }));
+
+  return [...homeEntries, ...stepInEntries, ...essayEntries];
 }
