@@ -6,8 +6,9 @@ import { localePath, hreflangAlternates, type Locale } from "@/lib/locale";
 // ZH/TH are AI-drafted from the shipped essay's register and the app's zh/th
 // dictionaries for shared terms, same practice as the app's own locales
 // (agenticjournaling-app/src/lib/i18n/locale.ts) — first-run copy, native
-// review still to come. "agenticjournaling", "First Movers", "Learning to
-// Arrive", and "Kickoff" are proper names and stay unmodified in every locale.
+// review still to come. "agenticjournaling" and "Learning to Arrive" are proper
+// names and stay unmodified in every locale. Since 2026-11-08 the site speaks
+// of a live product: no cohort, beta or First Movers (docs/BRIEFING-STEP-IN.md).
 
 type Station = { title: string; body: string };
 
@@ -34,21 +35,21 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     lead: "Where your inner parts have agency — they meet what you journal, speak in their own voice, and come into relationship with you — helping you see, value and integrate what lives inside you.",
     subline: "Built to be inhabited, not subscribed to.",
     essayLink: "What is agentic journaling?",
-    cta: "Join the First Movers",
-    weeksHeading: "How the cohort works",
+    cta: "Step in",
+    weeksHeading: "What I’d love to hear",
     weeksSub:
-      "Once your token arrives, you can explore the app. Shortly after, we’ll have our kickoff – I’ll be in touch soon to schedule our first session.",
+      "agenticjournaling is young, and it’s yours to use – in your language, at your own pace. For now I carry the costs. What I’d love in return is to hear what it does for you.",
     stations: [
       {
-        title: "Kickoff",
-        body: "What was your first impression? What do you sense it’s about, and how it works? Where could it feel easier or clearer?",
+        title: "First impressions",
+        body: "What do you sense it’s about, and how it works? Where could it feel easier or clearer?",
       },
       {
         title: "Going deeper",
         body: "What are you starting to see in yourself? What do you find yourself wishing for? And how do the translations feel?",
       },
       {
-        title: "Into real life & close",
+        title: "Into real life",
         body: "Where did it meet a real decision? What shifted for you? Where should the method go next?",
       },
     ],
@@ -62,21 +63,21 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     lead: "Wo deine inneren Anteile Handlungsraum haben — sie begegnen dem, was du schreibst, sprechen mit eigener Stimme und treten in Beziehung zu dir — damit du sehen, würdigen und integrieren kannst, was in dir lebt.",
     subline: "Gebaut, um bewohnt zu werden – ein Zuhause statt eines Abos.",
     essayLink: "Was ist agentic journaling?",
-    cta: "Werde Teil der First Movers",
-    weeksHeading: "So funktioniert die Kohorte",
+    cta: "Tritt ein",
+    weeksHeading: "Was ich gern von dir hören würde",
     weeksSub:
-      "Sobald dein Token ankommt, kannst du die App erkunden. Kurz darauf folgt unser Kickoff – ich melde mich bald bei dir, um unsere erste Session zu planen.",
+      "agenticjournaling ist jung – und es gehört dir: in deiner Sprache, in deinem Tempo. Die Kosten trage vorerst ich. Was ich mir im Gegenzug wünsche: zu hören, was es bei dir bewegt.",
     stations: [
       {
-        title: "Kickoff",
-        body: "Was war dein erster Eindruck? Worum geht es deinem Gefühl nach — und wie funktioniert es? Wo könnte es sich leichter oder klarer anfühlen?",
+        title: "Erster Eindruck",
+        body: "Worum geht es deinem Gefühl nach – und wie funktioniert es? Wo könnte es sich leichter oder klarer anfühlen?",
       },
       {
         title: "Tiefer gehen",
         body: "Was beginnst du in dir zu sehen? Was wünschst du dir? Und wie fühlen sich die Übersetzungen an?",
       },
       {
-        title: "Ins echte Leben & Abschluss",
+        title: "Ins echte Leben",
         body: "Wo hat es eine echte Entscheidung berührt? Was hat sich für dich verändert? Wohin darf die Methode als Nächstes gehen?",
       },
     ],
@@ -90,21 +91,21 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     lead: "你的内在部分在这里拥有能动性——它们回应你写下的文字，用自己的声音说话，并与你建立关系——帮助你看见、珍视并整合内心所拥有的一切。",
     subline: "生来是要被居住，而不是被订阅。",
     essayLink: "什么是 agentic journaling？",
-    cta: "加入 First Movers",
-    weeksHeading: "这一期如何运作",
+    cta: "走进来",
+    weeksHeading: "我想听你说的",
     weeksSub:
-      "你的邀请令牌一到，就可以开始探索这个应用。不久之后，我们会有一次 Kickoff——我会尽快联系你，安排我们的第一次对话。",
+      "agenticjournaling 还很年轻，而它属于你——用你的语言，按你的节奏。费用目前由我承担。我希望得到的回应，是听你说说它为你带来了什么。",
     stations: [
       {
-        title: "Kickoff",
-        body: "你的第一印象是什么？你感觉它是关于什么、又是如何运作的？哪里可以变得更轻松或更清晰？",
+        title: "第一印象",
+        body: "你感觉它是关于什么、又是如何运作的？哪里可以变得更轻松或更清晰？",
       },
       {
         title: "深入一步",
         body: "你开始在自己身上看见什么？你发现自己在期望什么？这些“翻译”感觉如何？",
       },
       {
-        title: "回到真实生活 & 收尾",
+        title: "回到真实生活",
         body: "它在哪里触及了一个真实的决定？你身上发生了什么变化？这个方法接下来该走向哪里？",
       },
     ],
@@ -118,21 +119,21 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     lead: "ที่ซึ่งส่วนต่าง ๆ ภายในตัวคุณมีความเป็นผู้กระทำ — พวกเขาตอบรับสิ่งที่คุณเขียน พูดด้วยเสียงของตัวเอง และเข้าสู่ความสัมพันธ์กับคุณ — เพื่อช่วยให้คุณมองเห็น เห็นคุณค่า และหลอมรวมสิ่งที่มีชีวิตอยู่ภายในตัวคุณ",
     subline: "สร้างมาเพื่ออยู่อาศัย ไม่ใช่เพื่อสมัครสมาชิก",
     essayLink: "agentic journaling คืออะไร",
-    cta: "เข้าร่วม First Movers",
-    weeksHeading: "รุ่นนี้ทำงานอย่างไร",
+    cta: "ก้าวเข้ามา",
+    weeksHeading: "สิ่งที่ฉันอยากฟังจากคุณ",
     weeksSub:
-      "เมื่อโทเคนของคุณมาถึง คุณจะเริ่มสำรวจแอปได้ จากนั้นไม่นานเราจะมี Kickoff ด้วยกัน — ฉันจะติดต่อคุณเร็ว ๆ นี้เพื่อนัดครั้งแรกของเรา",
+      "agenticjournaling ยังเยาว์วัย และมันเป็นของคุณ — ในภาษาของคุณ ตามจังหวะของคุณ ตอนนี้ฉันเป็นผู้รับผิดชอบค่าใช้จ่าย สิ่งที่ฉันอยากได้กลับมาคือการได้ฟังว่ามันทำอะไรให้คุณบ้าง",
     stations: [
       {
-        title: "Kickoff",
-        body: "ความประทับใจแรกของคุณคืออะไร คุณรู้สึกว่ามันเกี่ยวกับอะไร และทำงานอย่างไร ตรงไหนที่อาจรู้สึกง่ายขึ้นหรือชัดเจนขึ้นได้บ้าง",
+        title: "ความประทับใจแรก",
+        body: "คุณรู้สึกว่ามันเกี่ยวกับอะไร และทำงานอย่างไร ตรงไหนที่อาจรู้สึกง่ายขึ้นหรือชัดเจนขึ้นได้บ้าง",
       },
       {
         title: "ลงลึกขึ้น",
         body: "คุณเริ่มเห็นอะไรในตัวเอง คุณพบว่าตัวเองปรารถนาอะไร แล้วการแปลความรู้สึกเหล่านั้นเป็นอย่างไรบ้าง",
       },
       {
-        title: "สู่ชีวิตจริง & ปิดท้าย",
+        title: "สู่ชีวิตจริง",
         body: "มันไปแตะการตัดสินใจจริงตรงไหน อะไรเปลี่ยนไปสำหรับคุณ วิธีการนี้ควรไปทางไหนต่อ",
       },
     ],
