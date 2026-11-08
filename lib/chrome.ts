@@ -38,7 +38,7 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     cta: "Step in",
     weeksHeading: "What I’d love to hear",
     weeksSub:
-      "agenticjournaling is young, and it’s yours to use – in your language, at your own pace. For now I carry the costs. What I’d love in return is to hear what it does for you.",
+      "agenticjournaling is young, and it’s yours to use – in your language, at your own pace. I carry the costs for now and I am curious what it does for people – for people like you.",
     stations: [
       {
         title: "First impressions",
@@ -66,7 +66,7 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     cta: "Tritt ein",
     weeksHeading: "Was ich gern von dir hören würde",
     weeksSub:
-      "agenticjournaling ist jung – und es gehört dir: in deiner Sprache, in deinem Tempo. Die Kosten trage vorerst ich. Was ich mir im Gegenzug wünsche: zu hören, was es bei dir bewegt.",
+      "agenticjournaling ist jung – und es gehört dir: in deiner Sprache, in deinem Tempo. Die Kosten trage vorerst ich – und ich bin neugierig, was es bei Menschen bewegt. Bei Menschen wie dir.",
     stations: [
       {
         title: "Erster Eindruck",
@@ -94,7 +94,7 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     cta: "走进来",
     weeksHeading: "我想听你说的",
     weeksSub:
-      "agenticjournaling 还很年轻，而它属于你——用你的语言，按你的节奏。费用目前由我承担。我希望得到的回应，是听你说说它为你带来了什么。",
+      "agenticjournaling 还很年轻，而它属于你——用你的语言，按你的节奏。费用目前由我承担——我很好奇它会为人们带来什么。为像你这样的人。",
     stations: [
       {
         title: "第一印象",
@@ -122,7 +122,7 @@ export const CHROME: Record<Locale, ChromeStrings> = {
     cta: "ก้าวเข้ามา",
     weeksHeading: "สิ่งที่ฉันอยากฟังจากคุณ",
     weeksSub:
-      "agenticjournaling ยังเยาว์วัย และมันเป็นของคุณ — ในภาษาของคุณ ตามจังหวะของคุณ ตอนนี้ฉันเป็นผู้รับผิดชอบค่าใช้จ่าย สิ่งที่ฉันอยากได้กลับมาคือการได้ฟังว่ามันทำอะไรให้คุณบ้าง",
+      "agenticjournaling ยังเยาว์วัย และมันเป็นของคุณ — ในภาษาของคุณ ตามจังหวะของคุณ ตอนนี้ฉันเป็นผู้รับผิดชอบค่าใช้จ่าย — และฉันอยากรู้ว่ามันทำอะไรให้ผู้คนบ้าง สำหรับคนอย่างคุณ",
     stations: [
       {
         title: "ความประทับใจแรก",

@@ -29,5 +29,8 @@ Live site read on agenticjournaling.com (/, /de, /first-movers): „Join the Fir
 - `/first-movers` answers 308 → `/step-in` locally.
 - After the owner's promote: one read of agenticjournaling.com, /de, /step-in, /first-movers.
 
+## Amendment 1 (2026-11-08, his words)
+„I carry the costs for now and I am curious what it does for people - for people like you." replaces the cost/feedback line on /step-in, in the mail and in the homepage section (DE/ZH/TH mirrored). Promote go: „Ja, auch auf /step-in und in die Mail, dann promote".
+
 ## Approved
 2026-11-08 — Johannes: „Ich überlasse das dir, du wirst die richtige Entscheidung treffen." (decision: cost/feedback line on the public page and in the mail).

@@ -101,7 +101,7 @@ export function renderInvitation(firstName: string): string {
               <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; color:#36302b; padding-bottom:10px;">What&rsquo;s next?</div>
               <div style="font-size:14.5px; line-height:22px; color:#55504a; padding-bottom:24px;">
                 Start exploring. Whenever you like, we talk &mdash; about what you notice, at your pace.
-                For now I carry the costs; what I&rsquo;d love in return is to hear what it does for you. Three things I&rsquo;d love to hear:
+                I carry the costs for now and I am curious what it does for people &mdash; for people like you. Three things I&rsquo;d love to hear:
               </div>
             </td>
           </tr>

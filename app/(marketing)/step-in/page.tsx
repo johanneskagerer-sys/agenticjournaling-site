@@ -16,8 +16,8 @@ export default function StepIn() {
           <h1 className="fm-heading">Step in and have a seat</h1>
           <p className="fm-intro">
             agenticjournaling is young, and it&rsquo;s yours to use &ndash; in your
-            language, at your own pace. For now I carry the costs. What I&rsquo;d
-            love in return is to hear what it does for you.
+            language, at your own pace. I carry the costs for now and I am curious
+            what it does for people &ndash; for people like you.
           </p>
           <p className="fm-note">
             Available in English, Chinese, German, and Thai. The model is on me
