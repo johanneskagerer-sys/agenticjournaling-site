@@ -264,7 +264,7 @@ body {
   border-bottom-color: var(--ink);
 }
 
-/* ── Weeks (how the cohort works) ── */
+/* ── Weeks (what I’d love to hear) ── */
 .section-weeks {
   background-color: var(--ground);
   padding: var(--space-8) 0 var(--space-8);
@@ -407,7 +407,7 @@ body {
   box-shadow: var(--shadow-2);
 }
 
-/* ── First Movers ── */
+/* ── Step in (fm-* classes kept from the former First Movers page) ── */
 .section-fm-hero {
   color: var(--ink);
   text-align: center;

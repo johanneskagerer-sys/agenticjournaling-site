@@ -48,7 +48,7 @@ export default async function Home({
             <Link href={essayHref}>{t.essayLink}</Link>
           </p>
           <Link
-            href="/first-movers"
+            href="/step-in"
             target="_blank"
             rel="noopener"
             className="cta-button"
@@ -75,7 +75,7 @@ export default async function Home({
           </ol>
           <div className="weeks-cta">
             <Link
-              href="/first-movers"
+              href="/step-in"
               target="_blank"
               rel="noopener"
               className="cta-button"

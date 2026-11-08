@@ -7,7 +7,7 @@ import "../../design/tokens.css";
 import "../globals.css";
 
 // Second root layout (see app/(locale)/[locale]/layout.tsx for why there are
-// two). Pages here aren't localized yet — /first-movers holds for the next
+// two). Pages here aren't localized yet — /step-in holds for the next
 // slice per BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md Amendment 1 — so lang
 // stays fixed at "en", exactly as on today's site.
 

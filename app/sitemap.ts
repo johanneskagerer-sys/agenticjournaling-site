@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...homeEntries,
     {
-      url: `${base}/first-movers`,
+      url: `${base}/step-in`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
