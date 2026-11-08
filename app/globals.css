@@ -450,6 +450,42 @@ body {
   max-width: 560px;
 }
 
+.fm-inside-heading {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+  margin: var(--space-6) 0 var(--space-4) 0;
+  letter-spacing: -0.2px;
+}
+
+.fm-inside {
+  list-style: none;
+  margin: 0 auto var(--space-6);
+  padding: 0;
+  max-width: 520px;
+  text-align: left;
+}
+
+.fm-inside li {
+  position: relative;
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-serif);
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: var(--leading-base);
+  color: var(--ink-soft);
+}
+
+.fm-inside li::before {
+  content: "·";
+  position: absolute;
+  left: var(--space-2);
+  color: var(--ink);
+}
+
 .fm-note {
   color: var(--ink-soft);
   font-family: var(--font-serif);

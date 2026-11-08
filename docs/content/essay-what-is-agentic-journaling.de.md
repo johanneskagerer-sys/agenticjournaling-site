@@ -44,7 +44,7 @@ Agentic Journaling ist eine Praxis, keine Therapie – und tut auch nicht so. Es
 
 Diese Praxis ist aus einem Buch übers Ankommen entstanden – [*Unterwegs um anzukommen*](https://johanneskagerer.de/unterwegsumanzukommen) – und trägt dieselbe Überzeugung: Der Weg nach Hause ist nicht schnellere Bewegung, sondern tieferes Zuhören.
 
-Wenn du sie in Gesellschaft ausprobieren willst: Eine kleine [First-Movers-Kohorte](https://agenticjournaling.com) geht die ersten Schritte gemeinsam – menschlich begleitet, drei Sessions, ohne Eile.
+Wenn du sie ausprobieren willst: [Tritt ein](https://agenticjournaling.com/step-in) – agenticjournaling ist ein stiller, privater Ort für diese Praxis, in deiner Sprache, in deinem Tempo.
 
 Schreiben. Begegnen. Integrieren.
 *(Journal · Relate · Integrate)*

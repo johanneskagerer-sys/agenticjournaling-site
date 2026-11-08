@@ -1,49 +1,62 @@
-// The approved invitation email (design asset, unchanged in look). Sent from
-// /step-in; copy speaks of a live product since 2026-11-08 (BRIEFING-STEP-IN).
-// The route interpolates the recipient's first name; everything else is static.
+import { CHROME } from "@/lib/chrome";
+import { STEP_IN, fill } from "@/lib/stepIn";
+import type { Locale } from "@/lib/locale";
+
+// The approved invitation email (design asset, unchanged in look), now in four
+// locales: every string comes from lib/stepIn.ts (mail block) and the three
+// listening stations from lib/chrome.ts, so the mail and the site never drift
+// (docs/BRIEFING-STEP-IN-FOUR-LANGUAGES.md).
 //
-// The "Step in" deep-link carries ONE shared token (historically "first-movers"). Per the token
-// design (agenticjournaling/scripts/sign-token.mjs) the private key never leaves
-// Johannes's machine, so nothing is minted on the server — this is a single token
-// he signs offline once and drops in here (or, preferred, sets as FIRST_MOVERS_TOKEN
-// in the Vercel env so re-mints need no code change).
-//
-//   node scripts/sign-token.mjs sign --id first-movers --days 200
-//
+// The "Step in" deep-link carries ONE shared token (historically "first-movers").
+// Per the token design, a token that can't be issued on the server is signed
+// offline once by Johannes and set as FIRST_MOVERS_TOKEN in Vercel — never in
+// the repo. To mint:
+//   cd ~/agenticjournaling && node scripts/sign-token.mjs sign --id first-movers --days 200
 export const FIRST_MOVERS_TOKEN =
   process.env.FIRST_MOVERS_TOKEN ?? "REPLACE_WITH_FIRST_MOVERS_TOKEN";
 
 export const TOKEN_PLACEHOLDER = "REPLACE_WITH_FIRST_MOVERS_TOKEN";
 
-/** Minimal HTML escape for values interpolated into the email body. */
-function esc(value: string): string {
-  return value
+const esc = (s: string) =>
+  s
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
+    .replace(/"/g, "&quot;");
 
-export function renderInvitation(firstName: string): string {
-  const name = esc(firstName.trim());
+const SERIF = "font-family:Georgia,'Times New Roman',serif;";
+const SANS = "font-family:Arial,Helvetica,sans-serif;";
+
+export function renderInvitation(name: string, locale: Locale = "en"): string {
+  const m = STEP_IN[locale].mail;
+  const stations = CHROME[locale].stations;
   const stepInHref = `https://app.agenticjournaling.com/?token=${FIRST_MOVERS_TOKEN}`;
 
+  const stationRows = stations
+    .map(
+      (s, i) => `
+              <div style="padding-bottom:${i === stations.length - 1 ? "6px" : "20px"};">
+                <div style="${SERIF} font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">${i + 1}</span> &middot; ${esc(s.title)}</div>
+                <div style="font-size:13px; line-height:20px; color:#6f6c66;">${esc(s.body)}</div>
+              </div>`,
+    )
+    .join("");
+
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${locale}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
-<title>Your agenticjournaling invitation</title>
+<title>${esc(m.title)}</title>
 </head>
 <body style="margin:0; padding:0; background-color:#f7f5f2;">
 
   <!-- preheader (hidden) -->
   <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
-    agenticjournaling is ready — step in, in your language.
+    ${esc(m.preheader)}
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f7f5f2;">
@@ -56,26 +69,24 @@ export function renderInvitation(firstName: string): string {
           <!-- banner -->
           <tr>
             <td align="center" style="background-color:#f0e7dd; padding:26px 24px 22px 24px;">
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; letter-spacing:3px; color:#36302b;">&bull;&bull;&bull;</div>
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:23px; padding-top:6px;"><a href="https://agenticjournaling.com" target="_blank" style="color:#36302b; text-decoration:none;">agenticjournaling</a></div>
-              <div style="font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:14px; color:#6f6c66; padding-top:8px;">Meet yourself &mdash; lead your way home.</div>
+              <div style="${SERIF} font-size:18px; letter-spacing:3px; color:#36302b;">&bull;&bull;&bull;</div>
+              <div style="${SERIF} font-size:23px; padding-top:6px;"><a href="https://agenticjournaling.com" target="_blank" style="color:#36302b; text-decoration:none;">agenticjournaling</a></div>
+              <div style="${SERIF} font-style:italic; font-size:14px; color:#6f6c66; padding-top:8px;">${esc(m.tagline)}</div>
             </td>
           </tr>
 
           <!-- body -->
           <tr>
-            <td align="center" style="padding:36px 44px 8px 44px; font-family:Arial,Helvetica,sans-serif;">
+            <td align="center" style="padding:36px 44px 8px 44px; ${SANS}">
 
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:22px; color:#36302b; padding-bottom:20px;">Hi ${name},</div>
+              <div style="${SERIF} font-size:22px; color:#36302b; padding-bottom:20px;">${esc(fill(m.hi, { name: name.trim() }))}</div>
 
               <div style="font-size:15px; line-height:24px; color:#55504a; padding-bottom:18px;">
-                You asked to step in &mdash; I&rsquo;m glad you&rsquo;re here.
-                <strong>agenticjournaling</strong> is ready, and it&rsquo;s yours to explore.
+                ${esc(m.body1).replace("agenticjournaling", "<strong>agenticjournaling</strong>")}
               </div>
 
               <div style="font-size:15px; line-height:24px; color:#55504a; padding-bottom:26px;">
-                It&rsquo;s a quiet, private place to meet the parts of you that carry the day,
-                in your own words and at your own pace. Everything stays in your hands.
+                ${esc(m.body2)}
               </div>
 
               <!-- CTA -->
@@ -83,66 +94,49 @@ export function renderInvitation(firstName: string): string {
                 <tr>
                   <td align="center" bgcolor="#9c6a4d" style="border-radius:25px;">
                     <a href="${stepInHref}" target="_blank"
-                       style="display:inline-block; padding:14px 36px; font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:bold; color:#FCFBF8; text-decoration:none; border-radius:25px;">
-                      Step in
+                       style="display:inline-block; padding:14px 36px; ${SANS} font-size:15px; font-weight:bold; color:#FCFBF8; text-decoration:none; border-radius:25px;">
+                      ${esc(m.cta)}
                     </a>
                   </td>
                 </tr>
               </table>
 
-              <div style="font-family:Arial,Helvetica,sans-serif; font-size:12.5px; color:#8a857e; padding-top:2px;">Best experienced on desktop and tablet.</div>
+              <div style="${SANS} font-size:12.5px; color:#8a857e; padding-top:2px;">${esc(m.device)}</div>
 
             </td>
           </tr>
 
           <!-- what's next -->
           <tr>
-            <td align="center" style="padding:34px 44px 0 44px; font-family:Arial,Helvetica,sans-serif;">
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; color:#36302b; padding-bottom:10px;">What&rsquo;s next?</div>
+            <td align="center" style="padding:34px 44px 0 44px; ${SANS}">
+              <div style="${SERIF} font-size:19px; color:#36302b; padding-bottom:10px;">${esc(m.nextHeading)}</div>
               <div style="font-size:14.5px; line-height:22px; color:#55504a; padding-bottom:24px;">
-                Start exploring. Whenever you like, we talk &mdash; about what you notice, at your pace.
-                I carry the costs for now and I am curious what it does for people &mdash; for people like you. Three things I&rsquo;d love to hear:
+                ${esc(m.nextBody)}
               </div>
             </td>
           </tr>
 
-          <!-- sessions -->
+          <!-- three things -->
           <tr>
-            <td align="center" style="padding:0 44px; font-family:Arial,Helvetica,sans-serif;">
-
-              <div style="padding-bottom:20px;">
-                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">1</span> &middot; First impressions</div>
-                <div style="font-size:13px; line-height:20px; color:#6f6c66;">What do you sense it&rsquo;s about, and how it works? Where could it feel easier or clearer?</div>
-              </div>
-
-              <div style="padding-bottom:20px;">
-                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">2</span> &middot; Going deeper</div>
-                <div style="font-size:13px; line-height:20px; color:#6f6c66;">What are you starting to see in yourself? What do you find yourself wishing for? And how do the translations feel?</div>
-              </div>
-
-              <div style="padding-bottom:6px;">
-                <div style="font-family:Georgia,'Times New Roman',serif; font-size:16px; color:#36302b; padding-bottom:5px;"><span style="color:#9c6a4d;">3</span> &middot; Into real life</div>
-                <div style="font-size:13px; line-height:20px; color:#6f6c66;">Where did it meet a real decision? What shifted for you? Where should the method go next?</div>
-              </div>
-
+            <td align="center" style="padding:0 44px; ${SANS}">${stationRows}
             </td>
           </tr>
 
-          <!-- gentle ask -->
+          <!-- your language -->
           <tr>
-            <td align="center" style="padding:28px 44px 0 44px; font-family:Arial,Helvetica,sans-serif;">
-              <div style="font-size:14px; font-weight:bold; color:#9c6a4d; padding-bottom:6px;">Gentle ask</div>
+            <td align="center" style="padding:28px 44px 0 44px; ${SANS}">
+              <div style="font-size:14px; font-weight:bold; color:#9c6a4d; padding-bottom:6px;">${esc(m.languagesHeading)}</div>
               <div style="font-size:13.5px; line-height:21px; color:#55504a;">
-                Start in English, then switch to your mother tongue, if available in settings (Thai, German, Chinese).
+                ${esc(m.languages)}
               </div>
             </td>
           </tr>
 
           <!-- sign-off -->
           <tr>
-            <td align="center" style="padding:30px 44px 0 44px; font-family:Arial,Helvetica,sans-serif;">
-              <div style="font-size:14.5px; color:#36302b;">With compassion,</div>
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; color:#36302b; padding-top:2px;">Johannes</div>
+            <td align="center" style="padding:30px 44px 0 44px; ${SANS}">
+              <div style="font-size:14.5px; color:#36302b;">${esc(m.signoff)}</div>
+              <div style="${SERIF} font-size:17px; color:#36302b; padding-top:2px;">Johannes</div>
             </td>
           </tr>
 
@@ -155,7 +149,7 @@ export function renderInvitation(firstName: string): string {
 
           <!-- footer -->
           <tr>
-            <td align="center" style="padding:22px 44px 34px 44px; font-family:Arial,Helvetica,sans-serif;">
+            <td align="center" style="padding:22px 44px 34px 44px; ${SANS}">
               <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 10px auto;">
                 <tr>
                   <td align="center" bgcolor="#f0e7dd" style="border-radius:12px; padding:10px 14px;">
@@ -163,8 +157,8 @@ export function renderInvitation(firstName: string): string {
                   </td>
                 </tr>
               </table>
-              <div style="font-family:Arial,Helvetica,sans-serif; font-size:11.5px; color:#8a857e; padding-bottom:3px;">made by</div>
-              <div style="font-family:Georgia,'Times New Roman',serif; font-size:15px; padding-bottom:8px;"><a href="https://authenticarriving.com/" target="_blank" style="color:#36302b; text-decoration:none;">Authentic Arriving</a></div>
+              <div style="${SANS} font-size:11.5px; color:#8a857e; padding-bottom:3px;">${esc(m.madeBy)}</div>
+              <div style="${SERIF} font-size:15px; padding-bottom:8px;"><a href="https://authenticarriving.com/" target="_blank" style="color:#36302b; text-decoration:none;">Authentic Arriving</a></div>
               <div style="padding-bottom:8px;">
                 <a href="mailto:info@agenticjournaling.com" style="color:#9c6a4d; text-decoration:none; font-size:15px;">&#9993;</a>
               </div>

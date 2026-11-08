@@ -44,6 +44,6 @@ Agentic journaling is a practice, not therapy, and it does not pretend otherwise
 
 This practice grew out of a book about arriving — [*Learning to Arrive*](https://learningtoarrive.com) — and it carries the same conviction: the way home is not faster movement but deeper listening.
 
-If you want to try it with company, a small [First Movers cohort](https://agenticjournaling.com) is walking the first steps together — human-led, three sessions, unhurried.
+If you want to try it: [step in](https://agenticjournaling.com/step-in) — agenticjournaling is a quiet, private place for this practice, in your language, at your own pace.
 
 Journal. Relate. Integrate.
