@@ -45,14 +45,18 @@ export function acceptLanguageDefaultLocale(header: string | null): Locale {
   return DEFAULT_LOCALE;
 }
 
-// Route keys for the two localized surfaces. Adding a third localized page
-// later = one more entry here.
-export type RouteKey = "home" | "essay";
+// Route keys for the three localized surfaces. Adding another localized page
+// later = one more entry here (+ its slug in LOCALIZED_SLUGS for the proxy).
+export type RouteKey = "home" | "essay" | "stepin";
 
 const SLUGS: Record<RouteKey, string> = {
   home: "",
   essay: "what-is-agentic-journaling",
+  stepin: "step-in",
 };
+
+// Unprefixed slugs the proxy localizes (everything but home).
+export const LOCALIZED_SLUGS: readonly string[] = [SLUGS.essay, SLUGS.stepin];
 
 export function localePath(locale: Locale, route: RouteKey): string {
   const slug = SLUGS[route];

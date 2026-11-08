@@ -5,10 +5,11 @@ import {
   LOCALE_COOKIE_MAX_AGE,
   isLocale,
   acceptLanguageDefaultLocale,
+  LOCALIZED_SLUGS,
   type Locale,
 } from "@/lib/locale";
 
-// Locale routing for the homepage + essay (see
+// Locale routing for the homepage, the essay and /step-in (see
 // docs/BRIEFING-SITE-CHROME-FOUR-LANGUAGES.md §4). Every locale, including
 // en, is now served from app/(locale)/[locale]/ — there is no literal page
 // at "/" or "/what-is-agentic-journaling" any more. This proxy (formerly
@@ -24,7 +25,11 @@ import {
 //    always refreshes the cookie to match — "direct links are always
 //    respected as-is"
 
-const ESSAY_SLUG = "what-is-agentic-journaling";
+// The unprefixed slugs that live under app/(locale)/[locale]/ besides home.
+const isLocalizedSlugPath = (pathname: string) =>
+  LOCALIZED_SLUGS.some((slug) => pathname === `/${slug}`);
+const isEnPrefixedPage = (pathname: string) =>
+  pathname === "/en" || LOCALIZED_SLUGS.some((slug) => pathname === `/en/${slug}`);
 
 function localeFromFirstSegment(pathname: string): Locale | null {
   const seg = pathname.split("/")[1];
@@ -40,7 +45,7 @@ export function proxy(request: NextRequest) {
   // [locale] segment also generates its own per-locale metadata routes
   // (opengraph-image, twitter-image, ...) under "/en/...", and those must
   // resolve as-is — they have no unprefixed counterpart to redirect to.
-  if (pathname === "/en" || pathname === `/en/${ESSAY_SLUG}`) {
+  if (isEnPrefixedPage(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(3) || "/";
     const res = NextResponse.redirect(url, 307);
@@ -63,7 +68,7 @@ export function proxy(request: NextRequest) {
 
   // Unprefixed request ("/" or "/what-is-agentic-journaling") — resolve from
   // the cookie, else Accept-Language.
-  if (pathname === "/" || pathname === `/${ESSAY_SLUG}`) {
+  if (pathname === "/" || isLocalizedSlugPath(pathname)) {
     const cookieLocale = request.cookies.get(LOCALE_COOKIE)?.value;
     const locale: Locale = isLocale(cookieLocale)
       ? cookieLocale
@@ -71,7 +76,7 @@ export function proxy(request: NextRequest) {
 
     if (locale !== DEFAULT_LOCALE) {
       const url = request.nextUrl.clone();
-      url.pathname = pathname === "/" ? `/${locale}` : `/${locale}/${ESSAY_SLUG}`;
+      url.pathname = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
       const res = NextResponse.redirect(url, 307);
       res.cookies.set(LOCALE_COOKIE, locale, {
         path: "/",
@@ -81,7 +86,7 @@ export function proxy(request: NextRequest) {
     }
 
     const url = request.nextUrl.clone();
-    url.pathname = pathname === "/" ? "/en" : `/en/${ESSAY_SLUG}`;
+    url.pathname = pathname === "/" ? "/en" : `/en${pathname}`;
     const res = NextResponse.rewrite(url);
     if (!isLocale(cookieLocale)) {
       res.cookies.set(LOCALE_COOKIE, "en", { path: "/", maxAge: LOCALE_COOKIE_MAX_AGE });

@@ -4,9 +4,14 @@ import {
   FIRST_MOVERS_TOKEN,
   TOKEN_PLACEHOLDER,
 } from "./invitation";
+import { STEP_IN, fill } from "@/lib/stepIn";
+import { isLocale, type Locale } from "@/lib/locale";
 
 // Node runtime: the Resend SDK sends the mail server-side, from info@.
 // The signing key is never here — this route only mails ONE shared token.
+// The route keeps its historical path ("first-movers") so nothing deployed is
+// re-keyed; the page that posts here is /step-in, in four locales, and the
+// mail answers in the locale the person wrote from.
 export const runtime = "nodejs";
 
 const FROM = "agenticjournaling <info@agenticjournaling.com>";
@@ -20,6 +25,7 @@ type Body = {
   lastName?: string;
   timeZone?: string;
   email?: string;
+  locale?: string;
 };
 
 export async function POST(request: Request) {
@@ -27,8 +33,11 @@ export async function POST(request: Request) {
   try {
     body = (await request.json()) as Body;
   } catch {
-    return json(400, { ok: false, reason: "invalid", message: nudge });
+    body = {};
   }
+  const locale: Locale = isLocale(body.locale) ? body.locale : "en";
+  const t = STEP_IN[locale].form;
+  const warmHiccup = `${t.hiccup} ${fill(t.hiccupTail, { email: RECORD_BCC })}`;
 
   const firstName = (body.firstName ?? "").trim();
   const email = (body.email ?? "").trim();
@@ -36,7 +45,7 @@ export async function POST(request: Request) {
   const timeZone = (body.timeZone ?? "").trim();
 
   if (!firstName || !EMAIL_RE.test(email)) {
-    return json(400, { ok: false, reason: "invalid", message: nudge });
+    return json(400, { ok: false, reason: "invalid", message: t.nudge });
   }
 
   // Misconfiguration is a server fault, never the person's — fail calm, log loud.
@@ -51,37 +60,29 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(apiKey);
+    const safeName = firstName.replace(/[\r\n]+/g, " ");
     const { error } = await resend.emails.send({
       from: FROM,
       to: email,
       bcc: RECORD_BCC,
-      subject: `Your agenticjournaling invitation, ${firstName.replace(/[\r\n]+/g, " ")}`,
-      html: renderInvitation(firstName),
+      subject: fill(STEP_IN[locale].mail.subject, { name: safeName }),
+      html: renderInvitation(firstName, locale),
     });
 
     if (error) {
-      console.error("[first-movers] resend error:", error, {
-        lastName,
-        timeZone,
-      });
+      console.error("[first-movers] resend error:", error, { lastName, timeZone, locale });
       return json(502, { ok: false, reason: "send-failed", message: warmHiccup });
     }
 
-    // The roster: the BCC lands in info@ for every send. lastName / timeZone ride
-    // along in logs so nothing the person offered is dropped.
-    console.log("[first-movers] invited:", { firstName, lastName, timeZone, email });
-    return json(200, { ok: true, message: confirm });
+    // The roster: the BCC lands in info@ for every send. lastName / timeZone /
+    // locale ride along in logs so nothing the person offered is dropped.
+    console.log("[first-movers] invited:", { firstName, lastName, timeZone, email, locale });
+    return json(200, { ok: true, message: t.confirm });
   } catch (err) {
     console.error("[first-movers] unexpected:", err);
     return json(502, { ok: false, reason: "send-failed", message: warmHiccup });
   }
 }
-
-// Warm, affirmative copy — no numbers, no shaming, on-brand.
-const confirm = "Your invitation is on its way — check your inbox.";
-const nudge = "Could you check that email address? Then we'll send it right over.";
-const warmHiccup =
-  "Something hiccuped on our side. Please write us directly at info@agenticjournaling.com and we'll bring you in.";
 
 function json(status: number, data: unknown) {
   return new Response(JSON.stringify(data), {

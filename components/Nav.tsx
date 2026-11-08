@@ -15,12 +15,13 @@ import {
 
 // Which of the two localized surfaces the visitor is currently on, so the
 // switcher keeps them on the same page in the new language instead of
-// bouncing to the homepage. Anything else (currently just /step-in,
-// which isn't localized yet) falls back to "home".
+// bouncing to the homepage. Anything else falls back to "home".
 function currentRoute(pathname: string): RouteKey {
   const match = pathname.match(/^\/(de|zh|th)(\/.*)?$/);
   const withoutLocale = match ? match[2] ?? "/" : pathname;
-  return withoutLocale.startsWith("/what-is-agentic-journaling") ? "essay" : "home";
+  if (withoutLocale.startsWith("/what-is-agentic-journaling")) return "essay";
+  if (withoutLocale.startsWith("/step-in")) return "stepin";
+  return "home";
 }
 
 // Set the cookie before the click's navigation lands, so middleware sees the
