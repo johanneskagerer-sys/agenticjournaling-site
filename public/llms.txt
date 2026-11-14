@@ -1,0 +1,19 @@
+# agenticjournaling
+
+> An AI-supported journaling practice where your inner parts speak in their own voice — helping you see, value, and integrate what lives inside you.
+
+Journal · Relate · Integrate. Made by Johannes Kagerer. Available in English, German, Chinese and Thai. "Agentic Journaling" is the name of the practice and is not translated.
+
+## Pages
+- [Home](https://agenticjournaling.com/): What agenticjournaling is and how to step in.
+- [What is Agentic Journaling?](https://agenticjournaling.com/what-is-agentic-journaling): The definition of the practice, from its source.
+- [Step in](https://agenticjournaling.com/step-in): Leave a few details and the invitation arrives by email.
+
+## Other languages
+- [Deutsch](https://agenticjournaling.com/de)
+- [中文](https://agenticjournaling.com/zh)
+- [ไทย](https://agenticjournaling.com/th)
+
+## Related
+- [Johannes Kagerer](https://johanneskagerer.de): The author's personal site.
+- [Learning to Arrive](https://learningtoarrive.com): The memoir the practice was born from.
