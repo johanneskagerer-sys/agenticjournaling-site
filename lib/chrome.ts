@@ -152,3 +152,41 @@ export function homeMetadata(locale: Locale): Metadata {
     },
   };
 }
+
+// Structured data for the homepage: the site and the app it presents. Uses the
+// locale's own approved meta description — no new copy.
+export function homeJsonLd(locale: Locale): string {
+  const t = CHROME[locale];
+  const base = "https://agenticjournaling.com";
+  const url = `${base}${localePath(locale, "home")}`.replace(/\/$/, "") || base;
+  const author = {
+    "@type": "Person",
+    name: "Johannes Kagerer",
+    url: "https://johanneskagerer.de",
+  };
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${base}/#website`,
+        name: "agenticjournaling",
+        alternateName: "Agentic Journaling",
+        url: base,
+        inLanguage: locale,
+        publisher: author,
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${base}/#app`,
+        name: "agenticjournaling",
+        alternateName: "Agentic Journaling",
+        applicationCategory: "LifestyleApplication",
+        description: t.metaDescription,
+        url,
+        inLanguage: ["en", "de", "zh", "th"],
+        author,
+      },
+    ],
+  });
+}

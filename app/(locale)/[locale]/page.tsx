@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import { CHROME, homeMetadata } from "@/lib/chrome";
+import { CHROME, homeJsonLd, homeMetadata } from "@/lib/chrome";
 import { LOCALES, isLocale, localePath, type Locale } from "@/lib/locale";
 import { notFound } from "next/navigation";
 
@@ -76,6 +76,10 @@ export default async function Home({
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: homeJsonLd(locale) }}
+      />
       <Footer locale={locale} />
     </>
   );
